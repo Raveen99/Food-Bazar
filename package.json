@@ -1,0 +1,30 @@
+{
+  "name": "foodbazar",
+  "version": "1.0.0",
+  "description": "Food Bazar -  A online food ordering app",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raveen99/Food-Bazar.git"
+  },
+  "keywords": [],
+  "author": "Raveen Soni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raveen99/Food-Bazar/issues"
+  },
+  "homepage": "https://github.com/Raveen99/Food-Bazar#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
