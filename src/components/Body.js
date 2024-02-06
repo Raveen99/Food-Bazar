@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { resURL } from "../utils/constants";
+import RestaurantCardShimmer from "../Shimmers/RestaurantCardShimmer";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
@@ -20,7 +21,9 @@ const Body = () => {
     );
   };
 
-  return (
+  return listOfRestaurants.length === 0 ? (
+    <RestaurantCardShimmer />
+  ) : (
     <div className="body-container">
       <div className="filter-container">
         <button
@@ -35,6 +38,10 @@ const Body = () => {
         >
           Ratings 4.0+
         </button>
+
+        <button className="button">Fast Delivery</button>
+        <button className="button">Pure Veg</button>
+        <button className="button">Offers</button>
       </div>
 
       <div className="res-container">
