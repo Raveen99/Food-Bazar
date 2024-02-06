@@ -1,24 +1,43 @@
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const { cloudinaryImageId, name, avgRating, cuisines, locality } =
-    resData?.info;
-  const { deliveryTime } = resData?.info?.sla;
+  const {
+    cloudinaryImageId,
+    name,
+    avgRating,
+    cuisines,
+    locality,
+    aggregatedDiscountInfoV3,
+    sla,
+  } = resData?.info;
 
   return (
-    <div className="res-card">
-      <img
-        className="res-logo"
-        alt="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
+    <div className="res">
+      <div className="res-card">
+        <div className="card-1">
+          <div className="res-image">
+            <img
+              alt="res-logo"
+              src={
+                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+                cloudinaryImageId
+              }
+            />
+
+            <div className="offer-container">
+              <div className="offer">
+                {(aggregatedDiscountInfoV3?.header ?? " ") +
+                  " " +
+                  (aggregatedDiscountInfoV3?.subHeader ?? " ")}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="res-data">
-        <p className="res-name">{name}</p>
-        <p className="res-info">{avgRating + " . " + deliveryTime + " min"}</p>
-        <p className="res-category">{cuisines.join(", ")}</p>
-        <p className="res-area">{locality}</p>
+        <p className="res-info">{name}</p>
+        <p className="res-info">{avgRating + " . " + sla?.slaString}</p>
+        <p className="res-category-area">{cuisines.join(", ")}</p>
+        <p className="res-category-area">{locality}</p>
       </div>
     </div>
   );
