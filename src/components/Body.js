@@ -14,9 +14,8 @@ const Body = () => {
     const data = await fetch(resURL);
 
     const restaurantData = await data.json();
-
     setListOfRestaurant(
-      restaurantData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      restaurantData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };

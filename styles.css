@@ -60,15 +60,13 @@ body {
   padding: 1rem;
 }
 
-.items {
-  display: flex;
-
-  align-items: center;
-  min-width: 0;
-  height: 100%;
+.items-container {
+  margin: auto;
 }
 
 ul {
+  display: flex;
+  flex-direction: row-reverse;
   list-style-type: none;
   margin: 0;
   padding: 0;
