@@ -1,4 +1,11 @@
 import LOGO from "../img/logo.png";
+import {
+  LuSearch,
+  LuBadgePercent,
+  LuUser,
+  LuShoppingCart,
+} from "react-icons/lu";
+import { TbPokeball } from "react-icons/tb";
 
 const Header = () => {
   return (
@@ -11,11 +18,36 @@ const Header = () => {
 
         <div className="items-container">
           <ul>
-            <li className="item">Cart</li>
-            <li className="item">Sign In</li>
-            <li className="item">Help</li>
-            <li className="item">Offers</li>
-            <li className="item">Search</li>
+            <li className="item">
+              <span className="icons">
+                <LuShoppingCart />
+              </span>
+              Cart
+            </li>
+            <li className="item">
+              <span className="icons">
+                <LuUser />
+              </span>
+              Sign In
+            </li>
+            <li className="item">
+              <span className="icons">
+                <TbPokeball />
+              </span>
+              Help
+            </li>
+            <li className="item">
+              <span className="icons">
+                <LuBadgePercent />
+              </span>
+              Offers
+            </li>
+            <li className="item">
+              <span className="icons">
+                <LuSearch />
+              </span>
+              Search
+            </li>
           </ul>
         </div>
       </div>
