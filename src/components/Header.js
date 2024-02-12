@@ -7,6 +7,8 @@ import {
 } from "react-icons/lu";
 import { TbPokeball } from "react-icons/tb";
 
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="header">
@@ -43,10 +45,15 @@ const Header = () => {
               Offers
             </li>
             <li className="item">
-              <span className="icons">
-                <LuSearch />
-              </span>
-              Search
+              <Link
+                to="/search"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <span className="icons">
+                  <LuSearch />
+                </span>
+                Search
+              </Link>
             </li>
           </ul>
         </div>
