@@ -1,18 +1,28 @@
 import { useState, useEffect } from "react";
 import { LuSearch } from "react-icons/lu";
-import { popularCuisines } from "../utils/constants";
+import { popCuisines, imgCusUrl } from "../utils/constants";
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
-  const [popularCuisines, setPopularCuisines] = useState([]);
+  const [listPopularCuisines, setListPopularCuisines] = useState([]);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     fetchPopCuisine();
   }, []);
 
   const fetchPopCuisine = async () => {
-    const data = await fetch(popularCuisines);
-    console.log("Data: ", data);
+    try {
+      const data = await fetch(popCuisines);
+      const popCuisinesData = await data.json();
+
+      setListPopularCuisines(
+        popCuisinesData?.data?.cards[1]?.card?.card?.imageGridCards?.info
+      );
+      setTitle(popCuisinesData?.data?.cards[1]?.card?.card?.header?.title);
+    } catch (error) {
+      console.error("Error Fetching Data: ", error);
+    }
   };
 
   return (
@@ -32,6 +42,17 @@ const Search = () => {
           <div className="search-logo">
             <LuSearch />
           </div>
+        </div>
+      </div>
+
+      <div className="cuisine-container">
+        <div className="cuisine-title">{title}</div>
+        <div className="cuisine-img-container">
+          {listPopularCuisines.map((item) => (
+            <div class="cuisine-img" key={item.id}>
+              <img src={imgCusUrl + item.imageId} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

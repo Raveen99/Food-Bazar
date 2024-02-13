@@ -319,3 +319,40 @@ ul {
 .search-logo {
   font-size: 1.15rem;
 }
+
+.cuisine-container {
+  background-color: #fff;
+  position: relative;
+  min-height: calc(100vh - 70px);
+  width: 860px;
+  margin: 10px auto;
+  padding: 28px 0px 0px 16px;
+}
+
+.cuisine-title {
+  font-size: 1.43rem;
+  font-weight: 800;
+  color: #3d4152;
+  letter-spacing: -0.3px;
+  font-family: ProximaNovaExtraBold, arial, Helvetica Neue, sans-serif;
+}
+
+.cuisine-img-container {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.cuisine-img {
+  width: calc(-13.1765px + 5.88235vw);
+  height: calc(-18.7245px + 8.35913vw);
+  min-width: calc(-13.1765px + 5.88235vw);
+  min-height: calc(-18.7245px + 8.35913vw);
+}
+
+.cuisine-img img {
+  width: 100%;
+  height: 100%;
+}
