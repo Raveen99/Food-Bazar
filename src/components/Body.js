@@ -2,9 +2,11 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { resURL } from "../utils/constants";
 import RestaurantCardShimmer from "../Shimmers/RestaurantCardShimmer";
+import Banner from "./Banner";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
+  const [bannerData, setBannerData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -14,6 +16,19 @@ const Body = () => {
     const data = await fetch(resURL);
 
     const restaurantData = await data.json();
+
+    //Banner Data
+    setBannerData(
+      restaurantData?.data?.cards[0]?.card?.card?.imageGridCards?.info.map(
+        (bannerInfo) => ({
+          id: bannerInfo.id,
+          imageId: bannerInfo.imageId,
+          action: bannerInfo.action,
+        })
+      )
+    );
+
+    //Restaurant Data
     setListOfRestaurant(
       restaurantData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -24,6 +39,8 @@ const Body = () => {
     <RestaurantCardShimmer />
   ) : (
     <div className="body-container">
+      <Banner data={bannerData} />
+      <hr className="horizontal-border"></hr>
       <div className="filter-container">
         <button
           className="button"

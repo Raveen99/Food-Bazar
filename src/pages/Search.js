@@ -49,7 +49,7 @@ const Search = () => {
         <div className="cuisine-title">{title}</div>
         <div className="cuisine-img-container">
           {listPopularCuisines.map((item) => (
-            <div class="cuisine-img" key={item.id}>
+            <div className="cuisine-img" key={item.id}>
               <img src={imgCusUrl + item.imageId} />
             </div>
           ))}
