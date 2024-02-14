@@ -101,9 +101,14 @@ ul {
 
 /* resturant container and card */
 
+.res-heading {
+  margin-bottom: 16px;
+}
+
 .res-container {
   margin-left: calc(10% + 36px);
   margin-right: calc(10% + 36px);
+  padding: 16px;
 }
 
 .res-cards {
@@ -115,16 +120,15 @@ ul {
   align-items: start;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
-  margin: 32px 16px;
 }
 
 .filter-container {
-  margin: 0px calc(10% + 52px);
-  height: 2.5rem;
+  height: 44px;
   width: 100%;
   gap: 12px;
   display: flex;
   align-content: center;
+  margin-bottom: 12px;
 }
 
 .button {
@@ -413,4 +417,30 @@ ul {
 .banner-img img {
   width: 100%;
   height: 100%;
+}
+
+/*Top Restaurant */
+.toprest-container {
+  margin-left: calc(10% + 36px);
+  margin-right: calc(10% + 36px);
+  position: relative;
+  padding: 16px;
+}
+
+.topres-card {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin-left: -16px;
+  margin-right: -16px;
+  display: flex;
+}
+
+.top-card {
+  padding-left: 16px;
+  padding-right: 24px;
+  width: 100%;
+}
+.top-res {
+  width: 19.5rem;
+  height: auto;
 }
