@@ -233,12 +233,12 @@ ul {
 }
 
 .res-info {
-  margin: 0px;
+  margin-bottom: 2px;
   font-family: Basis_Grotesque_Pro_Bold;
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  letter-spacing: -0.3px;
+  letter-spacing: 0.3px;
   color: rgba(2, 6, 12, 0.75);
   overflow: hidden;
   width: 100%;
@@ -249,12 +249,15 @@ ul {
   -webkit-box-orient: vertical;
 }
 
+.res-rating {
+  display: flex;
+}
+
 .res-category-area {
   font-family: Basis_Grotesque_Pro;
   font-weight: 200;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: -0.3px;
+  font-size: 17px;
+  line-height: 23px;
   color: rgba(2, 6, 12, 0.6);
   overflow: hidden;
   width: 100%;

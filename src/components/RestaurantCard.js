@@ -1,3 +1,4 @@
+import { MdStars } from "react-icons/md";
 const RestaurantCard = (props) => {
   const { resData } = props;
   const {
@@ -10,6 +11,7 @@ const RestaurantCard = (props) => {
     sla,
   } = resData?.info;
 
+  let iconStyle = { color: "green", fontSize: "1.5rem" };
   return (
     <div className="res">
       <div className="res-card">
@@ -35,7 +37,11 @@ const RestaurantCard = (props) => {
       </div>
       <div className="res-data">
         <p className="res-info">{name}</p>
-        <p className="res-info">{avgRating + " . " + sla?.slaString}</p>
+        <p className="res-info res-rating">
+          <MdStars style={iconStyle} />
+
+          {avgRating + " . " + sla?.slaString}
+        </p>
         <p className="res-category-area">{cuisines.join(", ")}</p>
         <p className="res-category-area">{locality}</p>
       </div>
