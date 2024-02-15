@@ -1,15 +1,15 @@
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
-import RestaurantCard from "./RestaurantCard";
+import ResCard from "./ResCard";
 
 const TopRest = ({ resData, resTitle }) => {
   return (
     <div className="toprest-container">
       <div className="btn-container">
-        <button className="arrow">
+        <button className="arrow left">
           <LuArrowLeft size={17} />
         </button>
 
-        <button className="arrow">
+        <button className="arrow right">
           <LuArrowRight size={17} />
         </button>
       </div>
@@ -19,9 +19,9 @@ const TopRest = ({ resData, resTitle }) => {
 
       <div className="topres-card">
         {resData.map((data) => (
-          <div className="top-card">
+          <div key={data?.info?.id} className="top-card">
             <div className="top-res">
-              <RestaurantCard key={data?.info?.id} resData={data} />
+              <ResCard resData={data} />
             </div>
           </div>
         ))}

@@ -1,9 +1,9 @@
-import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { resURL } from "../utils/constants";
 import RestaurantCardShimmer from "../Shimmers/RestaurantCardShimmer";
 import Banner from "./Banner";
 import TopRest from "./TopRest";
+import OnlineRest from "./OnlineRest";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
@@ -20,7 +20,6 @@ const Body = () => {
     const data = await fetch(resURL);
 
     const restaurantData = await data.json();
-
     //Banner Data
     setBannerData(
       restaurantData?.data?.cards[0]?.card?.card?.imageGridCards?.info.map(
@@ -31,7 +30,6 @@ const Body = () => {
         })
       )
     );
-    console.log("Data: ", restaurantData);
     // Top Restautants
     setTopRestaurant(
       restaurantData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -57,36 +55,7 @@ const Body = () => {
       <TopRest resData={topRestaurant} resTitle={topResTitle} />
       <hr className="horizontal-border"></hr>
 
-      <div className="res-container">
-        <div className="res-heading">
-          <h2>{resTitle}</h2>
-        </div>
-        <div className="filter-container">
-          <div className="filter">
-            <button
-              className="button"
-              onClick={() => {
-                const filteredList = listOfRestaurants.filter(
-                  (res) => res.info.avgRating > 4
-                );
-                console.log("Filtered List: ", filteredList);
-                setListOfRestaurant(filteredList);
-              }}
-            >
-              Ratings 4.0+
-            </button>
-
-            <button className="button">Fast Delivery</button>
-            <button className="button">Pure Veg</button>
-            <button className="button">Offers</button>
-          </div>
-        </div>
-        <div className="res-cards">
-          {listOfRestaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-          ))}
-        </div>
-      </div>
+      <OnlineRest resTitle={resTitle} resData={listOfRestaurants} />
     </div>
   );
 };

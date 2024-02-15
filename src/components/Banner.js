@@ -7,11 +7,11 @@ const Banner = (props) => {
   return (
     <div className="banner-container">
       <div className="btn-container">
-        <button className="arrow">
+        <button className="arrow left">
           <LuArrowLeft size={17} />
         </button>
 
-        <button className="arrow">
+        <button className="arrow right">
           <LuArrowRight size={17} />
         </button>
       </div>

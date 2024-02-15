@@ -1,5 +1,5 @@
 import { MdStars } from "react-icons/md";
-const RestaurantCard = (props) => {
+const ResCard = (props) => {
   const { resData } = props;
   const {
     cloudinaryImageId,
@@ -12,6 +12,7 @@ const RestaurantCard = (props) => {
   } = resData?.info;
 
   let iconStyle = { color: "green", fontSize: "1.5rem" };
+
   return (
     <div className="res">
       <div className="res-card">
@@ -49,4 +50,4 @@ const RestaurantCard = (props) => {
   );
 };
 
-export default RestaurantCard;
+export default ResCard;
