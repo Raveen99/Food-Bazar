@@ -1,14 +1,10 @@
-import { useParams } from "react-router-dom";
-import useResMenu from "../hooks/useResMenu";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
 import { LuClock8 } from "react-icons/lu";
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
 
-const ResMenuHeader = () => {
-  const { resId } = useParams();
-  const resMenuHeaderData = useResMenu(resId);
-  console.log("Data in resMenu: ", resMenuHeaderData);
+const ResMenuHeader = (props) => {
+  const { data } = props;
   const {
     name,
     cuisines,
@@ -18,7 +14,7 @@ const ResMenuHeader = () => {
     avgRatingString,
     totalRatingsString,
     costForTwoMessage,
-  } = resMenuHeaderData?.cards[0]?.card?.card?.info || {};
+  } = data?.cards[0]?.card?.card?.info || {};
 
   let iconStyle = { fontSize: "1.3rem", verticalAlign: "bottom" };
   return (

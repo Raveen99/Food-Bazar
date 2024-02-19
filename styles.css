@@ -217,7 +217,7 @@ ul {
   background: linear-gradient(rgba(27, 30, 36, 0) 0%, rgb(27, 30, 36) 84.21%);
 }
 
-.offer {
+.offer-label {
   -webkit-font-smoothing: antialiased;
   font-family: ProximaNovaCond_Black;
   font-weight: 800;
@@ -596,4 +596,78 @@ ul {
 
 .amount-two {
   display: inline-block;
+}
+
+/* Restaurant Offer */
+.resoffer-container {
+  padding-bottom: 16px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-top: 18px;
+}
+
+.res-offers {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  width: 100%;
+}
+
+.offers-slider {
+  display: flex;
+}
+
+.menu-offer-container {
+  margin-right: 12px;
+}
+
+.res-offer-wrapper {
+  display: flex;
+  border: 1px solid #e9e9eb;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  padding: 8px;
+  height: 100%;
+  min-width: 250px;
+  align-items: center;
+}
+
+.offer {
+  display: flex;
+}
+
+.info-wrapper {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.info-header {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #686b78;
+  font-family: ProximaNovaCondensedBold, arial, Helvetica Neue, sans-serif;
+}
+
+.coupon-code-wrapper {
+  font-size: 0.65rem;
+  color: #93959f;
+  margin-top: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px;
+  font-weight: 700;
+  font-family: ProximaNovaCondensedRegular, arial, Helvetica Neue, sans-serif;
+  display: flex;
 }

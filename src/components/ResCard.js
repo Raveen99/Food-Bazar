@@ -31,7 +31,7 @@ const ResCard = (props) => {
                 />
 
                 <div className="offer-container">
-                  <div className="offer">
+                  <div className="offer-label">
                     {(aggregatedDiscountInfoV3?.header ?? " ") +
                       " " +
                       (aggregatedDiscountInfoV3?.subHeader ?? " ")}
