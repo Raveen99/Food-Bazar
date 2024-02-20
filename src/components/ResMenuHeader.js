@@ -5,6 +5,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi";
 
 const ResMenuHeader = (props) => {
   const { data } = props;
+  console.log("Data in Res Menu Header: ", data);
   const {
     name,
     cuisines,
@@ -14,7 +15,7 @@ const ResMenuHeader = (props) => {
     avgRatingString,
     totalRatingsString,
     costForTwoMessage,
-  } = data?.cards[0]?.card?.card?.info || {};
+  } = data?.cards[2]?.card?.card?.info || {};
 
   let iconStyle = { fontSize: "1.3rem", verticalAlign: "bottom" };
   return (
