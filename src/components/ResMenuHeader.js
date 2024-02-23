@@ -5,7 +5,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi";
 
 const ResMenuHeader = (props) => {
   const { data } = props;
-  console.log("Data in Res Menu Header: ", data);
+  //console.log("Data in Res Menu Header: ", data);
   const {
     name,
     cuisines,

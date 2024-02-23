@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom";
 import ResOffer from "../components/ResOffer";
 import PureVegButton from "../components/PureVegButton";
 import { useState } from "react";
+import MenuCategoryContainer from "../components/MenuCategoryContainer";
 
 const ResMenu = () => {
   const { resId } = useParams();
-  const { resMenuHeaderData, resOfferData, isPureVeg } = useResMenu(resId);
+  const { resMenuHeaderData, resOfferData, isPureVeg, topPicks, resMenu } =
+    useResMenu(resId);
   const [showOnlyVeg, setShowOnlyVeg] = useState(false);
 
   const handleVegFilter = () => {
@@ -28,6 +30,8 @@ const ResMenu = () => {
   };
 
   console.log("ShowOnly Veg: ", showOnlyVeg);
+  console.log("Top Picks: ", topPicks);
+  console.log("ResMenu: ", resMenu);
   return (
     <div className="resmenu-container">
       <ResMenuHeader data={resMenuHeaderData} />
@@ -49,6 +53,16 @@ const ResMenu = () => {
           margin: "18px 0 0 18px",
         }}
       ></hr>
+      {resMenu.map((menuCategory) => (
+        <div>
+          <div className="menu-category-container">
+            <div className="menu-box">
+              <MenuCategoryContainer resMenu={menuCategory} />
+            </div>
+          </div>
+          <div className="menu-category-border"></div>
+        </div>
+      ))}
     </div>
   );
 };
