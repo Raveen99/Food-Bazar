@@ -1,25 +1,10 @@
 const RestaurantCardShimmer = () => {
   return (
-    <div className="body-container">
-      <div className="res-container shimmer-card-container">
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
+    <div className="home-shimmer">
+      <div className="shimmer-card"></div>
+      <div className="tabs">
+        <div className="tab1"></div>
+        <div className="tab2"></div>
       </div>
     </div>
   );

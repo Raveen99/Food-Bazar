@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { resURL } from "../utils/constants";
-import RestaurantCardShimmer from "../Shimmers/RestaurantCardShimmer";
 import Banner from "./Banner";
 import TopRest from "./TopRest";
 import OnlineRest from "./OnlineRest";
+import HomeShimmer from "../Shimmers/HomeShimmer";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
@@ -46,7 +46,7 @@ const Body = () => {
   };
 
   return listOfRestaurants.length === 0 ? (
-    <RestaurantCardShimmer />
+    <HomeShimmer />
   ) : (
     <div className="body-container">
       <Banner data={bannerData} />
