@@ -2,23 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 100%;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
-}
-
-.header {
+/*.header {
   display: flex;
   position: sticky;
   top: 0;
@@ -31,8 +15,8 @@ body {
   height: 5rem;
   background-color: #fff;
 }
-
-.nav {
+*/
+/*.nav {
   max-width: 1200px;
   min-width: 1200px;
 
@@ -41,30 +25,26 @@ body {
   align-items: center;
   margin: 0 auto;
 }
-
-.logo-container {
+*/
+/*.logo-container {
   display: flex;
   align-items: center;
-}
+}*/
 
-.logo {
+/*.logo {
   width: 4rem;
   height: 4rem;
-}
+}*/
 
-.name {
+/*.name {
   font-size: 1.4rem;
   font-weight: 520;
   color: #fc8019;
   margin-left: 1rem;
   margin-right: 10rem;
-}
+}*/
 
-.nav-items {
-  padding: 1rem;
-}
-
-.items-container {
+/*.items-container {
   margin: auto;
 }
 
@@ -74,21 +54,21 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
+}*/
 
-.item {
+/*.item {
   display: flex;
   margin-right: 5rem;
   font-size: 1rem;
   font-weight: 500;
   align-items: center;
   cursor: pointer;
-}
+}*/
 
-.icons {
+/*.icons {
   margin: 0.5rem;
   font-size: 1.3rem;
-}
+}*/
 
 .body-container {
   display: flex;

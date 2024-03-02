@@ -20,6 +20,7 @@ const Body = () => {
     const data = await fetch(resURL);
 
     const restaurantData = await data.json();
+    console.log("Restaurant Data: ", restaurantData);
     //Banner Data
     setBannerData(
       restaurantData?.data?.cards[0]?.card?.card?.imageGridCards?.info.map(
@@ -44,7 +45,7 @@ const Body = () => {
     );
     setResTitle(restaurantData?.data?.cards[2]?.card?.card?.title);
   };
-
+  console.log("List Of Restaurant: ", listOfRestaurants);
   return listOfRestaurants.length === 0 ? (
     <HomeShimmer />
   ) : (
