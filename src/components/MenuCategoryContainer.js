@@ -1,4 +1,4 @@
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowUp } from "react-icons/md";
 import MenuItem from "./MenuItem";
 import { useState } from "react";
 
@@ -10,8 +10,6 @@ const MenuCategoryContainer = ({ resMenu }) => {
   const [openCategory, setOpenCategory] = useState(
     itemCards ? title : categories.map((category) => category.title)
   );
-
-  console.log("Open Category: ", openCategory);
 
   const toggleDropDown = (categoryTitle) => {
     setOpenCategory((prevOpenCategory) => {
@@ -44,7 +42,7 @@ const MenuCategoryContainer = ({ resMenu }) => {
         </span>
       </button>
       {openCategory === title && (
-        <div id="menuContainer">
+        <div>
           {itemCards.map((items) => (
             <div>
               <MenuItem key={items?.card?.info?.id} data={items} />

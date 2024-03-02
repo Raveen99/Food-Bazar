@@ -50,7 +50,7 @@ const Header = () => {
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <span className="icons">
-                  <LuSearch />
+                  <LuSearch style={{ display: "inline" }} />
                 </span>
                 Search
               </Link>

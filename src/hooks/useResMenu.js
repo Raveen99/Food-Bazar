@@ -20,37 +20,40 @@ const useResMenu = (resId) => {
 
     // Restaurant Offers Data
     setResOfferData(
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers
     );
 
     //Pure Veg Filter Data
     setIsPureVeg(
-      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card
         ?.card?.isPureVeg ?? false
     );
 
     // Top Picks of Restaurant
     setTopPicks(
-      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-        ?.card?.carousel ?? []
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+        ?.card?.carousel
     );
 
     // Restaurant Menu Data
     const menuLength =
-      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.length -
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.length -
       2;
-    console.log("Menu Length: ", menuLength);
-    setResMenu(
-      topPicks.length > 0
-        ? json?.data.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(
+
+    json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+      ?.card?.carousel.length > 0
+      ? setResMenu(
+          json?.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(
             2,
             menuLength
           )
-        : json?.data.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(
+        )
+      : setResMenu(
+          json?.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(
             1,
             menuLength
           )
-    );
+        );
   };
   return {
     resMenuHeaderData,

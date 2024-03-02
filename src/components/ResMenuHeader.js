@@ -15,9 +15,19 @@ const ResMenuHeader = (props) => {
     avgRatingString,
     totalRatingsString,
     costForTwoMessage,
-  } = data?.cards[2]?.card?.card?.info || {};
+  } = data?.cards[0]?.card?.card?.info || {};
 
-  let iconStyle = { fontSize: "1.3rem", verticalAlign: "bottom" };
+  let iconStyle = {
+    fontSize: "1.3rem",
+    verticalAlign: "bottom",
+    display: "inline",
+  };
+
+  let ratingIcon = {
+    display: "inline",
+    marginRight: "0.3rem",
+    verticalAlign: "middle",
+  };
   return (
     <div className="menu-header-container">
       <div className="res-location">
@@ -46,7 +56,7 @@ const ResMenuHeader = (props) => {
           </div>
           <div className="res-menu-rating">
             <span className="avg-rating">
-              <FaStar />
+              <FaStar style={ratingIcon} />
               {avgRatingString}
             </span>
             <span className="total-rating">{totalRatingsString}</span>

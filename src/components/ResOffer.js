@@ -6,6 +6,7 @@ const ResOffer = (props) => {
     color: "brown",
     verticalAlign: "bottom",
     marginRight: "7px",
+    display: "inline",
   };
   return (
     <div className="menu-offer-container">

@@ -29,8 +29,6 @@ const ResMenu = () => {
           .classList.remove("toggle-switch-color"));
   };
 
-  console.log("ShowOnly Veg: ", showOnlyVeg);
-  console.log("Top Picks: ", topPicks);
   console.log("ResMenu: ", resMenu);
   return (
     <div className="resmenu-container">
