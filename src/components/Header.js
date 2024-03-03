@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="flex sticky top-0 left-0 right-0 z-[1000] px-12 shadow-xl h-20 bg-slate-20 overflow-hidden">
+    <div className="flex sticky top-0 left-0 right-0 z-50 px-12 shadow-xl h-20 bg-[#fff] overflow-hidden">
       <div className="flex relative items-center max-w-fit min-w-[1200px] mx-auto">
         <div className="flex items-center">
           <img src={LOGO} alt="logo" className="w-16 h-16"></img>

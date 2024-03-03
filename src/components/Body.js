@@ -45,16 +45,16 @@ const Body = () => {
     );
     setResTitle(restaurantData?.data?.cards[2]?.card?.card?.title);
   };
-  console.log("List Of Restaurant: ", listOfRestaurants);
+  //console.log("List Of Restaurant: ", listOfRestaurants);
   return listOfRestaurants.length === 0 ? (
     <HomeShimmer />
   ) : (
-    <div className="body-container">
+    <div className="w-full h-full pt-4">
       <Banner data={bannerData} />
-      <hr className="horizontal-border"></hr>
+      <hr className="border-solid border-1 border-[rgb(240, 240, 245)] m-8 calc(10% + 52px)"></hr>
 
       <TopRest resData={topRestaurant} resTitle={topResTitle} />
-      <hr className="horizontal-border"></hr>
+      <hr className="border-solid border-1 border-[rgb(240, 240, 245)] m-8 calc(10% + 52px)"></hr>
 
       <OnlineRest resTitle={resTitle} resData={listOfRestaurants} />
     </div>
