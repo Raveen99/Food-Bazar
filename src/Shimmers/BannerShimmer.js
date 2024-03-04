@@ -1,8 +1,10 @@
 const BannerShimmer = () => {
   return (
-    <div className="banner-shimmer">
+    <div className="relative h-80 text-center justify-center text-white flex flex-col py-5 bg-blue-950">
       <div>
-        <h2 className="banner-text">Looking for great food near you ...</h2>
+        <h2 className="text-3xl font-light mt-9 mr-auto">
+          Looking for great food near you ...
+        </h2>
       </div>
     </div>
   );
