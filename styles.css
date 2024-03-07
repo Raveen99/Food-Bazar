@@ -85,7 +85,7 @@ ul {
 
 /* resturant container and card */
 
-.res-heading {
+/*.res-heading {
   margin-bottom: 16px;
 }
 
@@ -104,7 +104,7 @@ ul {
   align-items: start;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
-}
+}*/
 
 .filter-container {
   height: 44px;
@@ -134,7 +134,7 @@ ul {
   letter-spacing: -0.3px;
 }
 
-.res {
+/*.res {
   display: grid;
   transition: all 0.05s ease 0s;
   cursor: pointer;
@@ -219,7 +219,7 @@ ul {
 
 .res-data {
   margin-left: 1rem;
-}
+}*/
 
 .res-info {
   margin-bottom: 2px;
@@ -259,9 +259,9 @@ ul {
 
 /* Shimmer UI */
 
-.shimmer-home-container {
-  margin-left: calc(20% + 36px);
-  margin-right: calc(20% + 36px);
+/*.shimmer-home-container {
+  margin-left: calc(10% + 36px);
+  margin-right: calc(10% + 36px);
   padding: 16px;
 }
 
@@ -272,8 +272,8 @@ ul {
 
 .home-shimmer {
   display: grid;
-  margin-top: -30px;
-  margin: 20px;
+  margin-top: 30px;
+
   padding: 8px;
 }
 
@@ -322,6 +322,7 @@ ul {
   font-weight: 300;
   margin: 37px auto 0;
 }
+*/
 
 /* Search Container */
 .search-container {
