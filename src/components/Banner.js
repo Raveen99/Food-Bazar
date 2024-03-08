@@ -9,37 +9,37 @@ const NewBanner = (props) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 1900 },
+      breakpoint: { max: 4000, min: 2050 },
       items: 10,
       slidesToSlide: 3,
     },
     mediumDesktop: {
-      breakpoint: { max: 1900, min: 1500 },
+      breakpoint: { max: 2050, min: 1600 },
       items: 7,
       slidesToSlide: 3,
     },
     desktop: {
-      breakpoint: { max: 1500, min: 1200 },
+      breakpoint: { max: 1600, min: 1400 },
       items: 6,
       slidesToSlide: 3,
     },
     laptop: {
-      breakpoint: { max: 1200, min: 1000 },
+      breakpoint: { max: 1400, min: 1150 },
       items: 5,
       slidesToSlide: 3,
     },
     tablet: {
-      breakpoint: { max: 1000, min: 850 },
+      breakpoint: { max: 1150, min: 850 },
       items: 4,
       slidesToSlide: 2,
     },
     largeMobile: {
-      breakpoint: { max: 850, min: 650 },
+      breakpoint: { max: 850, min: 500 },
       items: 3,
       slidesToSlide: 2,
     },
     mobile: {
-      breakpoint: { max: 650, min: 0 },
+      breakpoint: { max: 500, min: 0 },
       items: 2,
       slidesToSlide: 2,
     },
@@ -47,7 +47,7 @@ const NewBanner = (props) => {
 
   const CustomButtonGroup = ({ next, previous, ...rest }) => {
     const { currentSlide, slidesToShow } = rest.carouselState;
-    console.log("CurrSlide: ", rest);
+
     return (
       <div>
         <div className="mb-5 absolute right-0 left-0 top-0">
@@ -79,14 +79,14 @@ const NewBanner = (props) => {
   };
 
   return (
-    <div className="relative mx-[calc(10%+36px)] p-4">
+    <div className="relative p-4 lg:mx-[calc(10%+36px)] md:mx-[calc(5%+36px)] sm:mx-[calc(2%+36px)]">
       <Carousel
         className="px-0 py-10"
         responsive={responsive}
         arrows={false}
         customButtonGroup={<CustomButtonGroup />}
       >
-        {data.map((banner, index) => (
+        {data.map((banner) => (
           <div className="px-4 w-full transition duration-300" key={banner?.id}>
             <div className="w-36 h-44">
               <img
