@@ -5,12 +5,14 @@ import Body from "./src/components/Body";
 import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
 import Search from "./src/pages/Search";
 import ResMenu from "./src/pages/ResMenu";
+import Footer from "./src/components/Footer";
 
 const AppComponent = () => {
   return (
     <div className="app">
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 };
