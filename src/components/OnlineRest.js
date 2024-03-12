@@ -1,16 +1,15 @@
 import ResCard from "./ResCard";
 import Filter from "./Filter";
-import { Link } from "react-router-dom";
 const OnlineRest = ({ resTitle, resData }) => {
   return (
-    <div className="res-container">
-      <div className="res-heading">
-        <h2>{resTitle}</h2>
+    <div className="mx-[calc(10%+36px)] p-4">
+      <div className="mb-4">
+        <div className="text-xl font-bold">{resTitle}</div>
       </div>
       <Filter data={resData} />
 
-      <div className="res-cards">
-        {resData.map((restaurant) => (
+      <div className="grid grid-cols-4 gap-8 items-start">
+        {resData.reverse().map((restaurant) => (
           <ResCard key={restaurant?.info?.id} resData={restaurant} />
         ))}
       </div>

@@ -4,16 +4,17 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const TopRest = ({ resData, resTitle }) => {
+  console.log("ResData in Top Rest: ", resData);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 2250 },
+      breakpoint: { max: 4000, min: 2300 },
       items: 5,
       slidesToSlide: 3,
       partialVisibilityGutter: 20,
     },
     mediumDesktop: {
-      breakpoint: { max: 2250, min: 2050 },
+      breakpoint: { max: 2300, min: 2050 },
       items: 4,
       slidesToSlide: 3,
       partialVisibilityGutter: 40,
@@ -69,7 +70,6 @@ const TopRest = ({ resData, resTitle }) => {
 
   const CustomButtonTopRest = ({ next, previous, ...rest }) => {
     const { currentSlide, slidesToShow } = rest.carouselState;
-    console.log("CurrSlide in top rest: ", rest);
     return (
       <div>
         <div className="mb-5 absolute right-0 left-0 top-0">
@@ -87,7 +87,9 @@ const TopRest = ({ resData, resTitle }) => {
 
           <button
             className={`h-8 m-1 px-2 py-1 bg-gray-200 rounded-full opacity-100 ${
-              currentSlide >= slidesToShow ? "opacity-50" : "opacity-100"
+              currentSlide >= resData.length - slidesToShow
+                ? "opacity-50"
+                : "opacity-100"
             }`}
             onClick={() => next()}
           >
