@@ -18,11 +18,12 @@ const ResCard = (props) => {
   return (
     <div>
       <Link to={"/restaurant/" + id} style={{ textDecoration: "none" }}>
-        <div className="res">
-          <div className="res-card">
-            <div className="card-1">
-              <div className="res-image">
+        <div className="grid cursor-pointer gap-3 justify-stretch items-center transition-all grid-flow-row hover:drop-shadow-lg hover:scale-90">
+          <div className="relative before: h-0 block pt-[calc(66.66%)]">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <img
+                  className="w-full h-full object-cover"
                   alt="res-logo"
                   src={
                     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
@@ -30,8 +31,8 @@ const ResCard = (props) => {
                   }
                 />
 
-                <div className="offer-container">
-                  <div className="offer-label">
+                <div className="absolute bottom-0 left-0 right-0 grid content-end text-left px-3 pb-2 h-[calc(81px)] bg-gradient-to-b from-transparent to-gray-900">
+                  <div className="text-xl text-slate-50 overflow-hidden w-full font-extrabold line-clamp-1">
                     {(aggregatedDiscountInfoV3?.header ?? " ") +
                       " " +
                       (aggregatedDiscountInfoV3?.subHeader ?? " ")}
@@ -40,15 +41,21 @@ const ResCard = (props) => {
               </div>
             </div>
           </div>
-          <div className="res-data">
-            <p className="res-info">{name}</p>
-            <p className="res-info res-rating">
+          <div className="ml-4">
+            <div className="line-clamp-1 text-lg font-semibold tracking-wide text-slate-950">
+              {name}
+            </div>
+            <p className="flex">
               <MdStars style={iconStyle} />
 
-              {avgRating + " . " + sla?.slaString}
+              <span className="line-clamp-1 text-lg font-medium tracking-wide text-slate-950">
+                {avgRating + " . " + sla?.slaString}
+              </span>
             </p>
-            <p className="res-category-area">{cuisines.join(", ")}</p>
-            <p className="res-category-area">{locality}</p>
+            <p className="line-clamp-1 text-base text-slate-500">
+              {cuisines.join(", ")}
+            </p>
+            <p className="line-clamp-1 text-base text-slate-500">{locality}</p>
           </div>
         </div>
       </Link>
