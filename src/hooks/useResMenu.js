@@ -15,7 +15,7 @@ const useResMenu = (resId) => {
   const fetchMenuData = async () => {
     const response = await fetch(resMenuUrl + resId);
     const json = await response.json();
-    console.log("Json: ", json);
+    //console.log("Json: ", json);
     setResMenuHeaderData(json.data);
 
     // Restaurant Offers Data
@@ -36,24 +36,15 @@ const useResMenu = (resId) => {
     );
 
     // Restaurant Menu Data
-    const menuLength =
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.length -
-      2;
-
-    json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-      ?.card?.carousel.length > 0
-      ? setResMenu(
-          json?.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(
-            2,
-            menuLength
-          )
-        )
-      : setResMenu(
-          json?.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(
-            1,
-            menuLength
-          )
-        );
+    const menuCategory =
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap.REGULAR?.cards?.filter(
+        (category) =>
+          category?.card?.card?.["@type"] ===
+            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
+          category?.card?.card?.["@type"] ===
+            "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+      );
+    setResMenu(menuCategory);
   };
   return {
     resMenuHeaderData,
