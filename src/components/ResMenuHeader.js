@@ -29,50 +29,60 @@ const ResMenuHeader = (props) => {
     verticalAlign: "middle",
   };
   return (
-    <div className="menu-header-container">
-      <div className="res-location">
+    <div>
+      <div className="h-7 text-xs flex text-gray-400 items-center relative mx-auto z-[7]">
         <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
-          <span>Home</span>
+          <span className="mr-1">Home</span>
         </Link>
-        <span>/</span>
-        <span>{city}</span>
-        <span>/</span>
-        <span style={{ color: "#535665" }}>{name}</span>
+        <span className="mr-1">/</span>
+        <span className="mr-1">{city}</span>
+        <span className="mr-1">/</span>
+        <span className="mr-1" style={{ color: "#535665" }}>
+          {name}
+        </span>
       </div>
-      <div className="menu-header">
-        <div className="menu-header-display">
-          <div className="menu-header-display-name">{name}</div>
-          <div className="menu-header-display-time">{sla?.slaString}</div>
+      <div className="flex sticky top-0 left-0 w-full overflow-hidden h-16 z-[6] items-center border-b-4 border-solid border-transparent opacity-0 -mt-10">
+        <div>
+          <div className="text-ellipsis overflow-hidden whitespace-nowrap text-sm font-semibold text-slate-600">
+            {name}
+          </div>
+          <div className="text-ellipsis overflow-hidden whitespace-nowrap text-sm font-semibold text-slate-600">
+            {sla?.slaString}
+          </div>
         </div>
       </div>
-      <div className="menu-res">
-        <div className="menu-res-data">
-          <div className="restaurant-data">
-            <p className="restaurant-data-name">{name}</p>
-            <p className="restaurant-data-cuisines">{cuisines?.join(", ")}</p>
-            <p className="restaurant-data-cuisines">
+      <div className="mx-4">
+        <div className="pt-4 mb-4">
+          <div className="inline-block mr-4">
+            <p className="text-xl font-semibold text-slate-900 mb-2">{name}</p>
+            <p className="text-sm text-gray-400 overflow-hidden text-ellipsis mb-1">
+              {cuisines?.join(", ")}
+            </p>
+            <p className="text-sm text-gray-400 overflow-hidden text-ellipsis mb-1">
               {areaName + ", " + sla?.lastMileTravelString}
             </p>
           </div>
-          <div className="res-menu-rating">
-            <span className="avg-rating">
+          <div className="border-[1px] border-solid rounded-md text-center p-2 max-w-24 float-right">
+            <span className="block pb-2 border-b-[1px] border-solid font-bold mb-2 justify-between text-green-600">
               <FaStar style={ratingIcon} />
               {avgRatingString}
             </span>
-            <span className="total-rating">{totalRatingsString}</span>
+            <span className="font-serif text-xs font-medium">
+              {totalRatingsString}
+            </span>
           </div>
         </div>
         <hr
           style={{ borderBottom: "1px dashed #d3d3d3", marginBottom: "18px" }}
         ></hr>
-        <div className="delivery-details">
-          <div className="delivery-time">
+        <div className="text-sm font-bold text-slate-700">
+          <div className="inline-block mr-4">
             <LuClock8 style={iconStyle} />
-            <span>{sla?.slaString}</span>
+            <span className="ml-2">{sla?.slaString}</span>
           </div>
-          <div className="amount-two">
+          <div className="inline-block">
             <HiOutlineCurrencyRupee style={iconStyle} />
-            <span>{costForTwoMessage}</span>
+            <span className="ml-2">{costForTwoMessage}</span>
           </div>
         </div>
       </div>

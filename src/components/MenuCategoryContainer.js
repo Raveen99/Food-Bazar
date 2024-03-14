@@ -3,10 +3,10 @@ import MenuItem from "./MenuItem";
 import { useState } from "react";
 
 const MenuCategoryContainer = ({ resMenu }) => {
+  //console.log("ResMenu: ", resMenu);
+
   const { title } = resMenu?.card?.card;
   const { itemCards, categories } = resMenu?.card?.card;
-  //console.log("Data in Menu: ", itemCards ? itemCards : categories);
-
   const [openCategory, setOpenCategory] = useState(
     itemCards ? title : categories.map((category) => category.title)
   );
@@ -28,10 +28,10 @@ const MenuCategoryContainer = ({ resMenu }) => {
       <button
         id="menuDropDown"
         onClick={() => toggleDropDown(title)}
-        className="menu-dropdown"
+        className="w-full flex justify-between text-xl"
       >
-        <div className="menu-item-heading">{`${title} (${itemCards.length})`}</div>
-        <span className="menu-expand">
+        <div className="font-bold text-xl">{`${title} (${itemCards.length})`}</div>
+        <span>
           <MdKeyboardArrowUp
             style={{
               fontSize: "1.6rem",
@@ -46,7 +46,7 @@ const MenuCategoryContainer = ({ resMenu }) => {
           {itemCards.map((items) => (
             <div>
               <MenuItem key={items?.card?.info?.id} data={items} />
-              <div className="menu-items-divider"></div>
+              <div className="border-b-[0.5px] border-solid border-gray-300 my-5"></div>
             </div>
           ))}
         </div>
@@ -54,15 +54,18 @@ const MenuCategoryContainer = ({ resMenu }) => {
     </div>
   ) : (
     <div>
-      <div className="menu-category-heading">{title}</div>
+      <div className="mb-6 font-bold text-xl">{title}</div>
       {categories.map((category) => (
-        <div id={category.title} className="category-menu">
+        <div
+          id={category.title}
+          className="border-b-[0.5px] border-solid border-grey-300 mb-6"
+        >
           <button
             onClick={() => toggleDropDown(category.title)}
-            className="menu-dropdown"
+            className="w-full flex justify-between text-lg"
           >
-            <div className="menu-category-title">{`${category?.title} (${category?.itemCards.length})`}</div>
-            <span className="menu-expand">
+            <div className="text-base font-medium text-slate-900">{`${category?.title} (${category?.itemCards.length})`}</div>
+            <span>
               <MdKeyboardArrowUp
                 style={{
                   fontSize: "1.6rem",
@@ -78,7 +81,7 @@ const MenuCategoryContainer = ({ resMenu }) => {
               {category.itemCards.map((items) => (
                 <div>
                   <MenuItem key={items?.card?.info?.id} data={items} />
-                  <div className="menu-items-divider"></div>
+                  <div className="border-b-[0.5px] my-5"></div>
                 </div>
               ))}
             </div>

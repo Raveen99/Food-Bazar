@@ -9,18 +9,16 @@ const ResOffer = (props) => {
     display: "inline",
   };
   return (
-    <div className="menu-offer-container">
-      <div className="res-offer-wrapper">
-        <div className="offer">
-          <div className="info-wrapper">
-            <div className="info-header">
+    <div className="mr-3">
+      <div className="flex border-[1px] border-solid rounded-lg p-2 h-full min-w-60 items-center">
+        <div className="flex">
+          <div className="my-1 ml-2 flex flex-col justify-center">
+            <div className="text-base font-semibold whitespace-nowrap text-gray-800 font-sans">
               <LuBadgePercent style={iconStyle} />
               {header}
             </div>
-            <div className="coupon-code-wrapper">
-              <div className="coupon-code">
-                {couponCode + " | " + description}
-              </div>
+            <div className="text-xs text-slate-500 mt-1 text-ellipsis overflow-hidden whitespace-nowrap max-w-52 font-sans font-semibold flex">
+              {couponCode + " | " + description}
             </div>
           </div>
         </div>
