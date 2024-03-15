@@ -22,7 +22,7 @@ const MenuItem = (props) => {
   return (
     <div className="mt-4 pb-3">
       <div className="flex justify-between items-start">
-        <div>
+        <div className="w-9/12">
           <div className="flex">
             {itemAttribute?.vegClassifier === "VEG" ? (
               <img className="w-4 h-4" src={veg}></img>
@@ -63,13 +63,18 @@ const MenuItem = (props) => {
           )}
         </div>
 
-        <div className="relative ml-4 min-w-28 h-32">
+        <div className="relative ml-4 w-3/12 pt-5">
           {imageId !== undefined ? (
-            <img
-              className="h-28 w-28 object-cover rounded-md"
-              src={menuItemsUrl + imageId}
-              alt={name}
-            />
+            <div>
+              <button className="absolute left-9 top-32 w-2/3 h-8 bg-slate-50 shadow-md rounded-md border-[1PX] border-solid border-slate-300">
+                <span className="text-green-600 text-sm font-medium">ADD+</span>
+              </button>
+              <img
+                className="object-cover rounded-md w-full h-32"
+                src={menuItemsUrl + imageId}
+                alt={name}
+              />
+            </div>
           ) : (
             " "
           )}

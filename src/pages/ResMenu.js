@@ -4,13 +4,16 @@ import { useParams } from "react-router-dom";
 import ResOffer from "../components/ResOffer";
 import PureVegButton from "../components/PureVegButton";
 import MenuCategoryContainer from "../components/MenuCategoryContainer";
+import { useState } from "react";
 
 const ResMenu = () => {
   const { resId } = useParams();
   const { resMenuHeaderData, resOfferData, isPureVeg, topPicks, resMenu } =
     useResMenu(resId);
 
-  //console.log("ResOffer: ", resOfferData);
+  const [showIndex, setShowIndex] = useState(0);
+
+  console.log("ResMenu: ", resMenu);
   return (
     <div className="block max-w-4xl mt-5 mx-auto">
       <ResMenuHeader data={resMenuHeaderData} />
@@ -32,10 +35,15 @@ const ResMenu = () => {
           margin: "18px 0 0 18px",
         }}
       ></hr>
-      {resMenu.map((menuCategory) => (
+      {resMenu.map((menuCategory, index) => (
         <div>
           <div className="mt-6 mx-4 mb-4">
-            <MenuCategoryContainer resMenu={menuCategory} />
+            <MenuCategoryContainer
+              id={menuCategory?.card?.card?.title}
+              resMenu={menuCategory}
+              showItem={index == showIndex ? true : false}
+              showIndex={() => setShowIndex(index)}
+            />
           </div>
 
           <div className="h-4 border-b-8 border-solid"></div>
