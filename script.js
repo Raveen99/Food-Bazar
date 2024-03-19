@@ -6,14 +6,18 @@ import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
 import Search from "./src/pages/Search";
 import ResMenu from "./src/pages/ResMenu";
 import Footer from "./src/components/Footer";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
 
 const AppComponent = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </Provider>
   );
 };
 
