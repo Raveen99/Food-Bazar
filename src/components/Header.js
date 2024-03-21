@@ -6,10 +6,16 @@ import {
   LuShoppingCart,
 } from "react-icons/lu";
 import { TbPokeball } from "react-icons/tb";
-
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+  const cartData = Object.values(cartItems);
+  const itemCount = cartData.reduce((acc, item) => {
+    return (acc += item.count);
+  }, 0);
+
   return (
     <div className="flex sticky top-0 left-0 right-0 z-50 px-12 shadow-xl h-20 bg-[#fff] overflow-hidden">
       <div className="flex relative items-center max-w-fit min-w-[1200px] mx-auto">
@@ -26,7 +32,7 @@ const Header = () => {
               <span className="m-2 text-xl">
                 <LuShoppingCart />
               </span>
-              Cart
+              Cart ({itemCount})
             </li>
             <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
               <span className="m-2 text-xl">

@@ -3,10 +3,15 @@ import { menuItemsUrl } from "../utils/constants";
 import veg from "../img/veg.png";
 import nonVeg from "../img/nonVeg.png";
 import { FaStar } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { incrementItemCount, addItems } from "../../store/cartSlice";
+import AddItemButton from "./AddItemButton";
+import { useState, useEffect } from "react";
 
 const MenuItem = (props) => {
   const { data } = props;
   const {
+    id,
     name,
     price,
     defaultPrice,
@@ -15,9 +20,28 @@ const MenuItem = (props) => {
     itemAttribute,
     isBestseller,
   } = data?.card?.info ?? " ";
-  /*console.log("Item Name: ", name);
-  console.log("Item price: ", price);
-  console.log("Item Description: ", description);*/
+
+  const [itemCount, setItemCount] = useState(0);
+  const dispatch = useDispatch();
+  const cartItem = useSelector((store) => store.cart.items);
+
+  //console.log("CartItems: ", cartItem);
+
+  const handleClick = () => {
+    if (cartItem[data?.id] === undefined) {
+      dispatch(addItems(data?.card?.info));
+      setItemCount(1);
+    } else {
+      dispatch(incrementItemCount(id));
+      setItemCount(cartItem[id].count);
+    }
+  };
+
+  useEffect(() => {
+    if (data && cartItem[id]) {
+      setItemCount(cartItem[id].count);
+    }
+  }, [cartItem, data, setItemCount]);
 
   return (
     <div className="mt-4 pb-3">
@@ -67,7 +91,20 @@ const MenuItem = (props) => {
           {imageId !== undefined ? (
             <div>
               <button className="absolute left-6 top-32 w-2/3 h-8 bg-slate-50 shadow-md rounded-md border-[1PX] border-solid border-slate-300">
-                <span className="text-green-600 text-sm font-medium">ADD+</span>
+                {itemCount == 0 ? (
+                  <div
+                    className="text-green-600 text-sm font-medium"
+                    onClick={handleClick}
+                  >
+                    ADD
+                  </div>
+                ) : (
+                  <AddItemButton
+                    itemCount={itemCount}
+                    setItemCount={setItemCount}
+                    data={data}
+                  ></AddItemButton>
+                )}
               </button>
               <img
                 className="object-cover rounded-md w-full h-32"

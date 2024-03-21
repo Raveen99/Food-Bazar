@@ -8,8 +8,6 @@ const MenuCategoryContainer = ({ resMenu, showItem, showIndex }) => {
   const { title } = resMenu?.card?.card;
   const { itemCards, categories } = resMenu?.card?.card;
 
-  console.log("ShowIndex: ", showIndex);
-
   const handleShowItem = () => {
     showIndex();
   };
