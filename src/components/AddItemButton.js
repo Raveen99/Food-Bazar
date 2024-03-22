@@ -3,7 +3,7 @@ import { decrementItemCount, incrementItemCount } from "../../store/cartSlice";
 import { useEffect } from "react";
 
 const AddItemButton = ({ itemCount, setItemCount, data }) => {
-  const id = data?.card.info?.id;
+  const id = data?.id;
   const dispatch = useDispatch();
   const cartItem = useSelector((store) => store.cart.items);
 

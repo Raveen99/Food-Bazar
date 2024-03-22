@@ -29,10 +29,12 @@ const Header = () => {
         <div className="m-auto">
           <ul className="flex flex-row-reverse m-0 p-0">
             <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
-              <span className="m-2 text-xl">
-                <LuShoppingCart />
-              </span>
-              Cart ({itemCount})
+              <Link to="/cart">
+                <span className="m-2 text-xl">
+                  <LuShoppingCart style={{ display: "inline" }} />
+                </span>
+                Cart ({itemCount})
+              </Link>
             </li>
             <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
               <span className="m-2 text-xl">

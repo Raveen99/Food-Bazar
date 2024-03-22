@@ -66,7 +66,10 @@ const MenuCategoryContainer = ({ resMenu, showItem, showIndex }) => {
             <div>
               {category.itemCards.map((items, index) => (
                 <div>
-                  <MenuItem key={items?.card?.info?.id} data={items} />
+                  <MenuItem
+                    key={items?.card?.info?.id}
+                    data={items?.card?.info}
+                  />
                   <div className="border-b-[0.5px] my-5"></div>
                 </div>
               ))}

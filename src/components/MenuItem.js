@@ -7,9 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { incrementItemCount, addItems } from "../../store/cartSlice";
 import AddItemButton from "./AddItemButton";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const MenuItem = (props) => {
-  const { data } = props;
+  const location = useLocation();
+  const isCartPage = location.pathname === "/cart";
+  const info = isCartPage ? props?.data : props?.data?.card?.info;
+
   const {
     id,
     name,
@@ -19,17 +23,15 @@ const MenuItem = (props) => {
     imageId,
     itemAttribute,
     isBestseller,
-  } = data?.card?.info ?? " ";
+  } = info ?? " ";
 
   const [itemCount, setItemCount] = useState(0);
   const dispatch = useDispatch();
   const cartItem = useSelector((store) => store.cart.items);
 
-  //console.log("CartItems: ", cartItem);
-
   const handleClick = () => {
-    if (cartItem[data?.id] === undefined) {
-      dispatch(addItems(data?.card?.info));
+    if (cartItem[id] === undefined) {
+      dispatch(addItems(info));
       setItemCount(1);
     } else {
       dispatch(incrementItemCount(id));
@@ -38,10 +40,10 @@ const MenuItem = (props) => {
   };
 
   useEffect(() => {
-    if (data && cartItem[id]) {
+    if (info && cartItem[id]) {
       setItemCount(cartItem[id].count);
     }
-  }, [cartItem, data, setItemCount]);
+  }, [cartItem, info, setItemCount]);
 
   return (
     <div className="mt-4 pb-3">
@@ -102,7 +104,7 @@ const MenuItem = (props) => {
                   <AddItemButton
                     itemCount={itemCount}
                     setItemCount={setItemCount}
-                    data={data}
+                    data={info}
                   ></AddItemButton>
                 )}
               </button>
