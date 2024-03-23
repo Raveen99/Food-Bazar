@@ -1,165 +1,62 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import LOGO from "../img/logo.png";
 
 const Footer = () => {
+  const LiCss =
+    "font-normal lg:text-base md:text-base text-xs lg:pt-3 md:pt-3 pt-2 text-zinc-400 lg:tracking-wide tracking-wider md:tracking-wide  cursor-pointer";
+  const titleCss =
+    "font-extrabold lg:text-lg md:text-lg text-base text-gray-50 tracking-wide lg:pb-4 md:pb-4 pb-2";
+
   return (
-    <>
-      <footer className="mt-12 bg-[#02060C] text-white py-12 px-8 md:px-56">
-        <div className="container grid grid-cols-1 text-center  md:grid-cols-4 gap-4 mx-auto">
-          <div className="md:col-start-1 col-end-auto row-start-1 row-end-5">
-            <h2 className="text-2xl font-bold">Food Bazar</h2>
-            <h4 className="text-gray-300 my-4">© 2024 made By Raveen</h4>
-          </div>
-
-          <div className="md-col-start-2">
-            <h2 className="text-lg font-bold">Company</h2>
-            <ul>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  About
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Team
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-bold">Contact Us</h2>
-            <ul>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Help & Support
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Partner with us
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Ride with us
-                </Link>
-              </li>
-              {/* Add more links here */}
-            </ul>
-          </div>
-
-          <div className="md:col-start-3 md:-mt-24">
-            <h2 className="text-lg font-bold mb-4">Legal</h2>
-            <ul>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Cookie Policy
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              {/* Add more links here */}
-            </ul>
-          </div>
-          <div className="md:col-start-4 md:row-start-1">
-            <h2 className="text-lg font-bold mb-4">We deliver to:</h2>
-            <ul>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Bangalore
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Delhi
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Kolkata
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Mumbai
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Ahmedabad
-                </Link>
-              </li>
-              <li className="my-4">
-                <Link
-                  to="#"
-                  className="text-gray-300 hover:text-white transition duration-300"
-                >
-                  Pune
-                </Link>
-              </li>
-              {/* Add more links here */}
-            </ul>
+    <div>
+      <div className="flex justify-center items-start lg:px-12  md:px-12 px-4 lg:flex-row md:flex-row flex-row bg-black lg:gap-10 md:gap-10 gap-16 lg:w-12/12 md:w-12/12 w-12/12 lg:py-16 md:py-16 py-10 pb-20 flex-wrap">
+        <div>
+          <div className="flex">
+            <img className="w-16 rounded-full" src={LOGO}></img>
+            <p className="text-3xl font-medium ml-4 mr-40 mt-4 text-[#fc8019]">
+              Food Bazar
+            </p>
           </div>
         </div>
-      </footer>
-    </>
-    // <div>footer</div>
+
+        <div className="lg:w-2/12 w-4/12 md:w-2/12">
+          <span className={titleCss}>Company</span>
+          <ul>
+            <li className={LiCss}>About</li>
+            <li className={LiCss}>Careers</li>
+            <li className={LiCss}>Team</li>
+            <li className={LiCss}>Food Bazar One</li>
+            <li className={LiCss}>Food Bazar Instamart</li>
+          </ul>
+        </div>
+        <div className="lg:w-2/12 w-4/12 md:w-2/12">
+          <span className={titleCss}>Contact Us</span>
+          <ul>
+            <li className={LiCss}>Help & Support</li>
+            <li className={LiCss}>Partner with us</li>
+            <li className={LiCss}>Ride with us</li>
+            <li className={LiCss}>Privacy Policy</li>
+            <li className={LiCss}>Cookies</li>
+          </ul>
+        </div>
+        <div className="lg:w-2/12 w-4/12 md:w-2/12 ">
+          <span className={titleCss}>We deliver to:</span>
+          <ul>
+            <li className={LiCss}>Bangalore</li>
+            <li className={LiCss}>Pune</li>
+            <li className={LiCss}>Gurgaon</li>
+            <li className={LiCss}>Hyderabad</li>
+            <li className={LiCss}>Delhi</li>
+            <li className={LiCss}>Mumbai</li>
+          </ul>
+        </div>
+      </div>
+      <div className="bg-zinc-800 text-white text-center py-5">
+        <span className="tracking-wide">
+          © 2024 All Rights Reserved Raveen Soni
+        </span>
+      </div>
+    </div>
   );
 };
 

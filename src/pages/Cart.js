@@ -40,8 +40,8 @@ const Cart = () => {
       </Link>
     </div>
   ) : (
-    <div className="h-screen bg-gray-200 flex">
-      <div className="xl:mx-auto my-6 bg-slate-50 py-8 xl:px-20 md:px-16 sm:px-3">
+    <div className="h-full bg-gray-200">
+      <div className="block max-w-5xl h-screen mx-auto px-20 py-8 bg-slate-50 ">
         <div className=" sm:text-2xl font-bold my-6 flex justify-between">
           <h1>Cart Items: </h1>
           <button

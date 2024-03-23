@@ -92,7 +92,7 @@ const MenuItem = (props) => {
         <div className="relative ml-4 w-1/6 pt-5">
           {imageId !== undefined ? (
             <div>
-              <button className="absolute left-6 top-32 w-2/3 h-8 bg-slate-50 shadow-md rounded-md border-[1PX] border-solid border-slate-300">
+              <button className="absolute left-6 top-32 w-2/3 h-8 bg-slate-50 shadow-md rounded-md border-[1px] border-solid border-slate-300">
                 {itemCount == 0 ? (
                   <div
                     className="text-green-600 text-sm font-medium"
