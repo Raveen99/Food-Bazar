@@ -9,12 +9,12 @@ const SearchDishCard = ({ item }) => {
   const restaurant = item?.card?.card?.restaurant?.info;
   const info = item?.card?.card?.info;
 
-  console.log("info: ", info);
+  console.log("This is search dish card");
 
   if (!restaurant || !info) return;
   return (
     <div className="p-2 w-3/4 sm:w-5/12 bg-white rounded-xl">
-      <Link to={`/restaurants/${restaurant?.id}`} key={restaurant?.id}>
+      <Link to={`/restaurant/${restaurant?.id}`} key={restaurant?.id}>
         <div className="flex justify-between items-center">
           <div className=" text-gray-600 p-2 cursor-pointer">
             <h1 className="text-base font-semibold">{`By ${restaurant?.name}`}</h1>

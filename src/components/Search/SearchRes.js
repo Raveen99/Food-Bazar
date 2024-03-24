@@ -4,11 +4,14 @@ import { SEARCH_API_URL } from "../../utils/constants";
 import SearchDish from "./SearchDish";
 import SearchResCard from "./SearchResCard";
 import { Link } from "react-router-dom";
+import RestaurantCardShimmer from "../../Shimmers/RestaurantCardShimmer";
 
 const SearchRes = () => {
   const [resInfo, setResInfo] = useState([]);
   const [dishInfo, setDishInfo] = useState([]);
   const [searchParams] = useSearchParams();
+
+  console.log("This is Search Res");
 
   let query = searchParams.get("query");
   let selectedPLTab = searchParams.get("selectedPLTab");
@@ -39,6 +42,9 @@ const SearchRes = () => {
       );
     }
   };
+  if ((!resInfo || !resInfo.length) && (!dishInfo || !dishInfo.length)) {
+    return <RestaurantCardShimmer />;
+  }
 
   return selectedPLTab === "DISH" ? (
     <SearchDish dishInfo={dishInfo} />
@@ -46,7 +52,7 @@ const SearchRes = () => {
     <div className="w-full border bg-gray-50 rounded-lg">
       <div className="w-full p-2">
         <Link
-          to={`/restaurants/${resInfo[0]?.card?.card?.info?.id}`}
+          to={`/restaurant/${resInfo[0]?.card?.card?.info?.id}`}
           key={resInfo[0]?.card?.card.info?.id}
         >
           <SearchResCard
@@ -60,7 +66,7 @@ const SearchRes = () => {
         {resInfo &&
           resInfo?.map((item) => (
             <Link
-              to={`/restaurants/${item?.card?.card?.info?.id}`}
+              to={`/restaurant/${item?.card?.card?.info?.id}`}
               key={item?.card?.card?.info?.id}
             >
               <SearchResCard restaurant={item?.card?.card} />

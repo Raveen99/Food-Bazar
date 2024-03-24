@@ -19,12 +19,14 @@ const Header = () => {
   return (
     <div className="flex sticky top-0 left-0 right-0 z-50 px-12 shadow-xl h-20 bg-[#fff] overflow-hidden">
       <div className="flex relative items-center max-w-fit min-w-[1200px] mx-auto">
-        <div className="flex items-center">
-          <img src={LOGO} alt="logo" className="w-16 h-16"></img>
-          <p className="text-2xl font-medium ml-4 mr-40 text-[#fc8019]">
-            Food Bazar
-          </p>
-        </div>
+        <Link to="/">
+          <div className="flex items-center">
+            <img src={LOGO} alt="logo" className="w-16 h-16"></img>
+            <p className="text-2xl font-medium ml-4 mr-40 text-[#fc8019]">
+              Food Bazar
+            </p>
+          </div>
+        </Link>
 
         <div className="m-auto">
           <ul className="flex flex-row-reverse m-0 p-0">

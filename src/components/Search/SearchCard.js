@@ -4,7 +4,7 @@ import { searchImgURL } from "../../utils/constants";
 const SearchCard = ({ restaurant }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
-    <div className="flex w-[1000px] mx-auto items-center cursor-pointer gap-3 my-3 hover:bg-gray-200 ">
+    <div className="flex w-[1100px] mx-auto items-center cursor-pointer gap-3 my-3 hover:bg-gray-200 ">
       <div className="h-16 w-16 m-2">
         {!isLoaded && (
           <div

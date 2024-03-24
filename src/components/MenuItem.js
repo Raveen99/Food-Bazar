@@ -45,7 +45,7 @@ const MenuItem = ({ data }) => {
   return (
     <div className="mt-4 pb-3">
       <div className="flex justify-between items-start">
-        <div className="w-5/6">
+        <div className="w-9/12">
           <div className="flex">
             {itemAttribute?.vegClassifier === "VEG" ? (
               <img className="w-4 h-4" src={veg}></img>
@@ -86,33 +86,37 @@ const MenuItem = ({ data }) => {
           )}
         </div>
 
-        <div className="relative ml-4 w-1/6 pt-5">
+        <div className="relative max-w-32 min-w-28 pt-5 mx-4">
+          <button className="absolute left-6 top-32 w-2/3 h-8 bg-slate-50 shadow-md rounded-md border-[1px] border-solid border-slate-300">
+            {itemCount == 0 ? (
+              <div
+                className="text-green-600 text-sm font-medium"
+                onClick={handleClick}
+              >
+                ADD
+              </div>
+            ) : (
+              <AddItemButton
+                itemCount={itemCount}
+                setItemCount={setItemCount}
+                data={info}
+              ></AddItemButton>
+            )}
+          </button>
           {imageId !== undefined ? (
-            <div>
-              <button className="absolute left-6 top-32 w-2/3 h-8 bg-slate-50 shadow-md rounded-md border-[1px] border-solid border-slate-300">
-                {itemCount == 0 ? (
-                  <div
-                    className="text-green-600 text-sm font-medium"
-                    onClick={handleClick}
-                  >
-                    ADD
-                  </div>
-                ) : (
-                  <AddItemButton
-                    itemCount={itemCount}
-                    setItemCount={setItemCount}
-                    data={info}
-                  ></AddItemButton>
-                )}
-              </button>
-              <img
-                className="object-cover rounded-md w-full h-32"
-                src={menuItemsUrl + imageId}
-                alt={name}
-              />
-            </div>
+            <img
+              className="object-cover rounded-md w-full h-32"
+              src={menuItemsUrl + imageId}
+              alt={name}
+            />
           ) : (
-            " "
+            <div
+              className="w-full h-32 text-center rounded-md object-cover text-sm text-gray-400"
+              style={{ backgroundColor: "#f0f0f0" }}
+            >
+              {" "}
+              Image not available{" "}
+            </div>
           )}
         </div>
       </div>

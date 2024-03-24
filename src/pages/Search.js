@@ -2,17 +2,20 @@ import { useState, useEffect } from "react";
 import { LuSearch } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
 import PopularCuisine from "../components/Search/PopularCuisine";
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SEARCH_SUGGESTIONS_API_URL } from "../utils/constants";
 import { cacheResults } from "../../store/cacheSlice";
 import { Link } from "react-router-dom";
 import SearchCard from "../components/Search/SearchCard";
 import SearchRes from "../components/Search/SearchRes";
+import { useSearchParams } from "react-router-dom";
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [showResDetail, setShowResDetail] = useState(false);
+  const [searchParams] = useSearchParams();
+  let query = searchParams.get("query");
 
   const searchCache = useSelector((store) => store.search);
   const dispatch = useDispatch();
@@ -45,36 +48,38 @@ const Search = () => {
       console.log("Error while fetching data: ", error);
     }
   };
+
+  useEffect(() => {
+    query && setSearchText(query);
+  }, [query]);
+
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
   };
 
   return (
-    <div className="block w-full pt-11 pb-2 overflow-x-scroll">
-      <div className="h-12 w-[1000px] border border-solid border-slate-800 rounded-md mx-auto">
-        <div className="flex items-center h-12 w-full justify-center p-4">
-          <div className="w-full">
-            <input
-              type="text"
-              className="w-full h-full text-lg border-none overflow-hidden text-ellipsis align-middle outline-none font-sans"
-              placeholder="Search for restaurants and food"
-              value={searchText}
-              onChange={handleInputChange}
-              onClick={() => setShowResDetail(false)}
-            ></input>
-          </div>
-          <div className="text-lg">
-            {!searchText ? (
-              <LuSearch size={25} className="text-gray-600" />
-            ) : (
-              <RxCross2
-                size={25}
-                className="text-gray-600"
-                onClick={() => setSearchText("")}
-              />
-            )}
-          </div>
-        </div>
+    <div className="p-2 lg:w-4/5 xl:w-[1100px] m-auto mt-3 md:mt-5 xl:mt-6 relative">
+      <div className="sticky top-14 lg:top-16 pt-2 sm:pt-6 md:pt-10 bg-white z-10">
+        <span className="absolute right-3 translate-y-1/2 cursor-pointer ">
+          {!searchText ? (
+            <LuSearch size={25} className="text-gray-600" />
+          ) : (
+            <RxCross2
+              size={25}
+              className="text-gray-600"
+              onClick={() => setSearchText("")}
+            />
+          )}
+        </span>
+
+        <input
+          className="w-full text-lg border border-gray-400 rounded-sm mb-4 outline-0 font-sans align-middle overflow-hidden text-ellipsis px-4 py-3"
+          type="text"
+          value={searchText}
+          onChange={handleInputChange}
+          onClick={() => setShowResDetail(false)}
+          placeholder="Search for restaurants and food"
+        />
       </div>
       {showResDetail && <SearchRes />}
       {!searchData && <PopularCuisine />}
