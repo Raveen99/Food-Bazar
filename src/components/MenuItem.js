@@ -9,11 +9,8 @@ import AddItemButton from "./AddItemButton";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const MenuItem = (props) => {
-  const location = useLocation();
-  const isCartPage = location.pathname === "/cart";
-  const info = isCartPage ? props?.data : props?.data?.card?.info;
-
+const MenuItem = ({ data }) => {
+  const info = data;
   const {
     id,
     name,

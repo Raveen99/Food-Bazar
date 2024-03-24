@@ -3,11 +3,8 @@ import MenuItem from "./MenuItem";
 import { useState } from "react";
 
 const MenuCategoryContainer = ({ resMenu, showItem, showIndex }) => {
-  //console.log("ResMenu: ", resMenu);
-
   const { title } = resMenu?.card?.card;
   const { itemCards, categories } = resMenu?.card?.card;
-
   const handleShowItem = () => {
     showIndex();
   };
@@ -33,7 +30,7 @@ const MenuCategoryContainer = ({ resMenu, showItem, showIndex }) => {
         <div>
           {itemCards.map((items) => (
             <div>
-              <MenuItem key={items?.card?.info?.id} data={items} />
+              <MenuItem key={items?.card?.info?.id} data={items?.card?.info} />
               <div className="border-b-[0.5px] border-solid border-gray-300 my-5"></div>
             </div>
           ))}
@@ -64,7 +61,7 @@ const MenuCategoryContainer = ({ resMenu, showItem, showIndex }) => {
           </button>
           {showItem && (
             <div>
-              {category.itemCards.map((items, index) => (
+              {category.itemCards.map((items) => (
                 <div>
                   <MenuItem
                     key={items?.card?.info?.id}

@@ -21,3 +21,12 @@ export const menuItemsUrl =
 
 export const emptyCart =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0";
+
+export const SEARCH_SUGGESTIONS_API_URL =
+  "https://www.swiggy.com/dapi/restaurants/search/suggest?lat=11.0798822&lng=76.9757628&trackingId=null&str=";
+
+export const searchImgURL =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/";
+
+export const SEARCH_API_URL =
+  "https://www.swiggy.com/dapi/restaurants/search/v3?lat=11.0798822&lng=76.9757628&trackingId=null&submitAction=SUGGESTION&str=";

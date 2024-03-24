@@ -1,33 +1,57 @@
 import { useState, useEffect } from "react";
 import { LuSearch } from "react-icons/lu";
-import { popCuisines, imgCusUrl } from "../utils/constants";
+import { RxCross2 } from "react-icons/rx";
+import PopularCuisine from "../components/Search/PopularCuisine";
+import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { SEARCH_SUGGESTIONS_API_URL } from "../utils/constants";
+import { cacheResults } from "../../store/cacheSlice";
+import { Link } from "react-router-dom";
+import SearchCard from "../components/Search/SearchCard";
+import SearchRes from "../components/Search/SearchRes";
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
-  const [listPopularCuisines, setListPopularCuisines] = useState([]);
-  const [title, setTitle] = useState("");
+  const [searchData, setSearchData] = useState(null);
+  const [showResDetail, setShowResDetail] = useState(false);
+
+  const searchCache = useSelector((store) => store.search);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchPopCuisine();
-  }, []);
+    const timer = setTimeout(() => {
+      if (searchCache[searchText]) {
+        setSearchData(searchCache[searchText]);
+      } else {
+        fetchData();
+      }
+    }, 200);
 
-  const fetchPopCuisine = async () => {
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchText]);
+
+  const fetchData = async () => {
     try {
-      const data = await fetch(popCuisines);
-      const popCuisinesData = await data.json();
-
-      setListPopularCuisines(
-        popCuisinesData?.data?.cards[1]?.card?.card?.imageGridCards?.info
+      const response = await fetch(SEARCH_SUGGESTIONS_API_URL + searchText);
+      const json = await response.json();
+      setSearchData(json?.data?.suggestions);
+      dispatch(
+        cacheResults({
+          [searchText]: json?.data?.suggestions,
+        })
       );
-      setTitle(popCuisinesData?.data?.cards[1]?.card?.card?.header?.title);
     } catch (error) {
-      console.error("Error Fetching Data: ", error);
+      console.log("Error while fetching data: ", error);
     }
+  };
+  const handleInputChange = (event) => {
+    setSearchText(event.target.value);
   };
 
   return (
-    <div className="block w-full h-full pt-11 pb-2">
-      <div className="sticky h-12 w-[1000px] border border-solid border-slate-800 rounded-md mx-auto">
+    <div className="block w-full pt-11 pb-2 overflow-x-scroll">
+      <div className="h-12 w-[1000px] border border-solid border-slate-800 rounded-md mx-auto">
         <div className="flex items-center h-12 w-full justify-center p-4">
           <div className="w-full">
             <input
@@ -35,29 +59,35 @@ const Search = () => {
               className="w-full h-full text-lg border-none overflow-hidden text-ellipsis align-middle outline-none font-sans"
               placeholder="Search for restaurants and food"
               value={searchText}
-              onChange={(event) => {
-                setSearchText(event.target.value);
-              }}
+              onChange={handleInputChange}
+              onClick={() => setShowResDetail(false)}
             ></input>
           </div>
           <div className="text-lg">
-            <LuSearch />
+            {!searchText ? (
+              <LuSearch size={25} className="text-gray-600" />
+            ) : (
+              <RxCross2
+                size={25}
+                className="text-gray-600"
+                onClick={() => setSearchText("")}
+              />
+            )}
           </div>
         </div>
       </div>
-
-      <div className="relative w-[1000px] my-2 mx-auto pt-7 pl-4">
-        <div className="text-2xl font-bold text-slate-950 font-sans">
-          {title}
-        </div>
-        <div className="mt-2 mb-2 flex overflow-y-hidden overflow-x-auto">
-          {listPopularCuisines.map((item) => (
-            <div className="min-w-32 min-h-40" key={item.id}>
-              <img src={imgCusUrl + item.imageId} />
-            </div>
-          ))}
-        </div>
-      </div>
+      {showResDetail && <SearchRes />}
+      {!searchData && <PopularCuisine />}
+      {!showResDetail &&
+        searchData?.map((restaurant, i) => (
+          <Link
+            onClick={() => setShowResDetail(true)}
+            to={`/search?query=${restaurant?.text}&selectedPLTab=${restaurant.type}`}
+            key={`${restaurant?.cloudinaryId}-${i}`}
+          >
+            <SearchCard restaurant={restaurant} />
+          </Link>
+        ))}
     </div>
   );
 };

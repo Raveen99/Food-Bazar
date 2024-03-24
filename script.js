@@ -20,11 +20,11 @@ const AppComponent = () => {
   const isCartPage = location.pathname === "/cart";
   return (
     <Provider store={appStore}>
-      <div>
-        <Header />
+      <Header />
+      <div className="w-full h-full ">
         <Outlet />
-        {!isCartPage && <Footer />}
       </div>
+      {!isCartPage && <Footer />}
     </Provider>
   );
 };
