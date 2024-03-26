@@ -30,7 +30,7 @@ const Header = () => {
 
         <div className="m-auto">
           <ul className="flex flex-row-reverse m-0 p-0">
-            <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
+            <li className="flex mr-20 text-base font-medium items-center cursor-pointer hover:text-orange-400">
               <Link to="/cart">
                 <span className="m-2 text-xl">
                   <LuShoppingCart style={{ display: "inline" }} />
@@ -38,27 +38,29 @@ const Header = () => {
                 Cart ({itemCount})
               </Link>
             </li>
-            <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
+            <li className="flex mr-20 text-base font-medium items-center cursor-pointer hover:text-orange-400">
               <span className="m-2 text-xl">
                 <LuUser />
               </span>
               Sign In
             </li>
-            <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
+            <li className="flex mr-20 text-base font-medium items-center cursor-pointer hover:text-orange-400">
               <Link to="/help">
                 <span className="m-2 text-xl">
-                  <TbPokeball />
+                  <TbPokeball style={{ display: "inline" }} />
                 </span>
+                Help
               </Link>
-              Help
             </li>
-            <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
-              <span className="m-2 text-xl">
-                <LuBadgePercent />
-              </span>
-              Offers
+            <li className="flex mr-20 text-base font-medium items-center cursor-pointer hover:text-orange-400">
+              <Link to="/offers">
+                <span className="m-2 text-xl">
+                  <LuBadgePercent style={{ display: "inline" }} />
+                </span>
+                Offers
+              </Link>
             </li>
-            <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
+            <li className="flex mr-20 text-base font-medium items-center cursor-pointer hover:text-orange-400">
               <Link to="/search">
                 <span className="m-2 text-xl">
                   <LuSearch style={{ display: "inline" }} />

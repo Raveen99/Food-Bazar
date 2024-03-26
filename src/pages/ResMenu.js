@@ -8,12 +8,12 @@ import { useState } from "react";
 
 const ResMenu = () => {
   const { resId } = useParams();
-  const { resMenuHeaderData, resOfferData, isPureVeg, topPicks, resMenu } =
+  const { resMenuHeaderData, resOfferData, isPureVeg, resMenu } =
     useResMenu(resId);
 
   const [showIndex, setShowIndex] = useState(0);
 
-  console.log("ResMenu: ", resMenu);
+  //console.log("ResMenu: ", resMenu);
   return (
     <div className="block max-w-4xl mt-5 mx-auto">
       <ResMenuHeader data={resMenuHeaderData} />

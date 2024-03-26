@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import appStore from "./store/appStore";
 import Collections from "./src/components/Collections";
 import Help from "./src/pages/Help";
+import Offers from "./src/pages/Offers";
 
 const AppComponent = () => {
   const location = useLocation();
@@ -59,6 +60,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/help",
         element: <Help />,
+      },
+      {
+        path: "/offers",
+        element: <Offers />,
       },
     ],
   },

@@ -15,7 +15,7 @@ const ResMenuHeader = (props) => {
     avgRatingString,
     totalRatingsString,
     costForTwoMessage,
-  } = data?.cards[0]?.card?.card?.info || {};
+  } = data?.cards[2]?.card?.card?.info || {};
 
   let iconStyle = {
     fontSize: "1.3rem",
