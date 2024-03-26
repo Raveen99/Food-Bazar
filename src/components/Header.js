@@ -45,9 +45,11 @@ const Header = () => {
               Sign In
             </li>
             <li className="flex mr-20 text-base font-medium items-center cursor-pointer">
-              <span className="m-2 text-xl">
-                <TbPokeball />
-              </span>
+              <Link to="/help">
+                <span className="m-2 text-xl">
+                  <TbPokeball />
+                </span>
+              </Link>
               Help
             </li>
             <li className="flex mr-20 text-base font-medium items-center cursor-pointer">

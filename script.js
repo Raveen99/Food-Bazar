@@ -15,6 +15,7 @@ import Footer from "./src/components/Footer";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore";
 import Collections from "./src/components/Collections";
+import Help from "./src/pages/Help";
 
 const AppComponent = () => {
   const location = useLocation();
@@ -54,6 +55,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/collections/:id",
         element: <Collections />,
+      },
+      {
+        path: "/help",
+        element: <Help />,
       },
     ],
   },
