@@ -30,3 +30,6 @@ export const searchImgURL =
 
 export const SEARCH_API_URL =
   "https://www.swiggy.com/dapi/restaurants/search/v3?lat=11.0798822&lng=76.9757628&trackingId=null&submitAction=SUGGESTION&str=";
+
+export const COLLECTION_API_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.0798822&lng=76.9757628&type=rcv2&offset=0&page_type=null&collection=";

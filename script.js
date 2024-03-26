@@ -14,6 +14,7 @@ import Cart from "./src/pages/Cart";
 import Footer from "./src/components/Footer";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore";
+import Collections from "./src/components/Collections";
 
 const AppComponent = () => {
   const location = useLocation();
@@ -49,6 +50,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/collections/:id",
+        element: <Collections />,
       },
     ],
   },

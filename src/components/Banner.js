@@ -2,6 +2,13 @@ import Carousel from "react-multi-carousel";
 import { bannerImgUrl } from "../utils/constants";
 import "react-multi-carousel/lib/styles.css";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
+import { Link } from "react-router-dom";
+
+const extractCollectionId = (url) => {
+  const regex = /collection_id=(\d+)/;
+  const match = url.match(regex);
+  return match && match[1];
+};
 
 const NewBanner = (props) => {
   const { data } = props;
@@ -78,6 +85,7 @@ const NewBanner = (props) => {
     );
   };
 
+  console.log("Data in banner: ", data);
   return (
     <div className="relative p-4 lg:mx-[calc(10%+36px)] md:mx-[calc(5%+36px)] sm:mx-[calc(2%+36px)]">
       <Carousel
@@ -87,14 +95,20 @@ const NewBanner = (props) => {
         customButtonGroup={<CustomButtonGroup />}
       >
         {data.map((banner) => (
-          <div className="px-4 w-full transition duration-300" key={banner?.id}>
-            <div className="w-36 h-44">
-              <img
-                src={bannerImgUrl + banner?.imageId}
-                alt={banner?.action?.text}
-              />
+          <Link
+            to={`/collections/${extractCollectionId(banner.action.link)}`}
+            key={banner.id}
+          >
+            <div className="px-4 w-full transition duration-300">
+              <div className="w-36 h-44">
+                <img
+                  className="cursor-pointer"
+                  src={bannerImgUrl + banner?.imageId}
+                  alt={banner?.action?.text}
+                />
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </Carousel>
     </div>
