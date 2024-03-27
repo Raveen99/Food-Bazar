@@ -12,8 +12,6 @@ const PopularCuisine = () => {
   const [listPopularCuisines, setListPopularCuisines] = useState([]);
   const [title, setTitle] = useState("");
 
-  console.log("Popular cuisine: ", listPopularCuisines);
-
   useEffect(() => {
     fetchPopCuisine();
   }, []);

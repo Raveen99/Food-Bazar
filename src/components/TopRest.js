@@ -4,7 +4,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const TopRest = ({ resData, resTitle }) => {
-  console.log("ResData in Top Rest: ", resData);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -50,21 +49,27 @@ const TopRest = ({ resData, resTitle }) => {
     },
 
     LargeMobile: {
-      breakpoint: { max: 1060, min: 860 },
+      breakpoint: { max: 1060, min: 930 },
       items: 2,
       slidesToSlide: 2,
     },
     mediumMobile: {
-      breakpoint: { max: 860, min: 700 },
+      breakpoint: { max: 930, min: 690 },
       items: 1,
       slidesToSlide: 1,
-      partialVisibilityGutter: 230,
+      partialVisibilityGutter: 200,
     },
     smallMobile: {
-      breakpoint: { max: 700, min: 400 },
+      breakpoint: { max: 690, min: 585 },
       items: 1,
       slidesToSlide: 1,
-      partialVisibilityGutter: 160,
+      partialVisibilityGutter: 100,
+    },
+    ultraSmallMobile: {
+      breakpoint: { max: 585, min: 350 },
+      items: 1,
+      slidesToSlide: 1,
+      partialVisibilityGutter: 0,
     },
   };
 
@@ -72,10 +77,10 @@ const TopRest = ({ resData, resTitle }) => {
     const { currentSlide, slidesToShow } = rest.carouselState;
     return (
       <div>
-        <div className="mb-5 absolute right-0 left-0 top-0">
-          <div className="text-xl font-bold">{resTitle}</div>
+        <div className="absolute right-0 left-0 top-0">
+          <div className="mt-2 text-base xl:text-xl font-bold">{resTitle}</div>
         </div>
-        <div className="flex absolute right-4 top-0">
+        <div className="flex absolute -right-1 top-0">
           <button
             className={`h-8 m-1 px-2 py-1 bg-gray-200 rounded-full ${
               currentSlide <= 0 ? "opacity-50" : "opacity-100"
@@ -101,7 +106,7 @@ const TopRest = ({ resData, resTitle }) => {
   };
 
   return (
-    <div className="p-4 relative lg:mx-[calc(10%+36px)] md:mx-[calc(5%+36px)] sm:mx-[calc(2%+36px)]">
+    <div className="p-4 relative mx-[calc(3%+36px)] xl:mx-[calc(10%+36px)] md:mx-[calc(8%+36px)] sm:mx-[calc(6%+36px)])]">
       <Carousel
         className="px-0 py-10"
         responsive={responsive}

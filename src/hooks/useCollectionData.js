@@ -13,7 +13,6 @@ const useCollectionData = (id) => {
   const fetchData = async () => {
     const response = await fetch(COLLECTION_API_URL + id);
     const json = await response.json();
-    console.log("Json in collection: ", json);
 
     setPageTitle(json?.data?.cards[0]?.card?.card?.title);
     setPageDescription(json?.data?.cards[0]?.card?.card?.description);

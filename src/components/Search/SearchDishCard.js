@@ -9,8 +9,6 @@ const SearchDishCard = ({ item }) => {
   const restaurant = item?.card?.card?.restaurant?.info;
   const info = item?.card?.card?.info;
 
-  console.log("This is search dish card");
-
   if (!restaurant || !info) return;
   return (
     <div className="p-2 w-3/4 sm:w-5/12 bg-white rounded-xl">

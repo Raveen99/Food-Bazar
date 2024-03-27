@@ -1,7 +1,6 @@
 import { MdStars } from "react-icons/md";
 import { Link } from "react-router-dom";
 const ResCard = ({ resData }) => {
-  console.log("resData from collection: ", resData);
   const {
     id,
     cloudinaryImageId,

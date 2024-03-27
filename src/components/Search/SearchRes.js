@@ -11,8 +11,6 @@ const SearchRes = () => {
   const [dishInfo, setDishInfo] = useState([]);
   const [searchParams] = useSearchParams();
 
-  console.log("This is Search Res");
-
   let query = searchParams.get("query");
   let selectedPLTab = searchParams.get("selectedPLTab");
 
@@ -32,7 +30,6 @@ const SearchRes = () => {
     }
 
     const json = await response.json();
-    console.log("Json: ", json);
 
     if (selectedPLTab === "DISH") {
       setDishInfo(json?.data?.cards[0]?.groupedCard?.cardGroupMap?.DISH?.cards);

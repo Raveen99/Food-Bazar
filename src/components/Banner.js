@@ -58,9 +58,11 @@ const NewBanner = (props) => {
     return (
       <div>
         <div className="mb-5 absolute right-0 left-0 top-0">
-          <div className="text-xl font-bold">What's on your mind?</div>
+          <div className="mt-2 text-base xl:text-xl font-bold">
+            What's on your mind?
+          </div>
         </div>
-        <div className="flex absolute right-4 top-0">
+        <div className="flex absolute -right-1 top-0">
           <button
             className={`h-8 m-1 px-2 py-1 bg-gray-200 rounded-full ${
               currentSlide <= 0 ? "opacity-50" : "opacity-100"
@@ -85,9 +87,9 @@ const NewBanner = (props) => {
     );
   };
 
-  console.log("Data in banner: ", data);
+  //console.log("Data in banner: ", data);
   return (
-    <div className="relative p-4 lg:mx-[calc(10%+36px)] md:mx-[calc(5%+36px)] sm:mx-[calc(2%+36px)]">
+    <div className="relative p-4 mx-[calc(3%+36px)] xl:mx-[calc(10%+36px)] md:mx-[calc(8%+36px)] sm:mx-[calc(6%+36px)]">
       <Carousel
         className="px-0 py-10"
         responsive={responsive}
@@ -99,8 +101,8 @@ const NewBanner = (props) => {
             to={`/collections/${extractCollectionId(banner.action.link)}`}
             key={banner.id}
           >
-            <div className="px-4 w-full transition duration-300">
-              <div className="w-36 h-44">
+            <div className="mt-4 px-4 w-full transition duration-300">
+              <div className="w-28 h-40 xl:w-36 xl:h-44">
                 <img
                   className="cursor-pointer"
                   src={bannerImgUrl + banner?.imageId}

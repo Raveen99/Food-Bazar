@@ -12,13 +12,13 @@ const Body = () => {
     listOfRestaurants,
   } = useResData();
 
-  console.log("List Of Restaurants: ", listOfRestaurants);
+  //console.log("List Of Restaurants: ", listOfRestaurants);
   return listOfRestaurants.length === 0 ? (
     <HomeShimmer />
   ) : (
     <div className="w-full h-full pt-4">
       <Banner data={bannerData} />
-      <hr className="border-solid border-1 border-[rgb(240, 240, 245)] m-6 calc(10% + 52px)"></hr>
+      <hr className="border-solid border-1 border-[rgb(240, 240, 245)] m-2 calc(10% + 52px)"></hr>
 
       <TopRest resData={topRestaurant} resTitle={topResTitle} />
       <hr className="border-solid border-1 border-[rgb(240, 240, 245)] m-6 calc(10% + 52px)"></hr>

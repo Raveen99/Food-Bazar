@@ -12,12 +12,11 @@ const Cart = () => {
   const itemCount = cartData.reduce((acc, item) => {
     return (acc += item.count);
   }, 0);
-  console.log("cartData: ", cartData);
+
   const totalAmount = cartData.reduce((acc, item) => {
     return (acc += (item.count * item.price) / 100);
   }, 0);
 
-  console.log("Total: ", totalAmount);
   const handleClick = () => {
     dispatch(clearCart());
   };

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Offers = () => {
   const { topRestaurant } = useResData();
 
-  console.log("List Of Restaurant: ", topRestaurant.slice(0, 10));
   return (
     <div className="mb-4 mt-4 flex w-full flex-col justify-center items-center">
       <div className="mb-4 mt-8 xs:mt-0 flex xl:w-4/6 lg:w-5/6 flex-col justify-start">
