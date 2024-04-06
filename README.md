@@ -1,3 +1,8 @@
+# Setting SignIn/SignUp page
+
+- Make slider component and overlay
+- Create form and add validation for form
+
 # Setting up testing in our app
 
 - Install React Testing Library

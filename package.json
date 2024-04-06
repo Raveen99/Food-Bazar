@@ -2,7 +2,6 @@
   "name": "foodbazar",
   "version": "1.0.0",
   "description": "Food Bazar -  A online food ordering app",
-  "main": "script.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -33,6 +32,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
+    "firebase": "^10.10.0",
     "jest-environment-jsdom": "^29.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

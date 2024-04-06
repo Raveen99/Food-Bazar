@@ -28,10 +28,12 @@ const OnlineRest = ({ resTitle, resData }) => {
         <div className="text-base xl:text-xl font-bold">{resTitle}</div>
       </div>
 
-      <div className="h-11 w-full gap-3 flex flex-nowrap mb-3 overflow-hidden">
+      <div className="mb-4 h-11">
         <div
-          className={`whitespace-nowrap flex cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 px-3 py-2 shadow-md hover:bg-orange-400 ${
-            activeFilter == "filterByRating" ? "bg-orange-400 border-black" : ""
+          className={`whitespace-nowrap w-28 mr-2 mb-2 inline-grid grid-cols-2 cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 py-2 shadow-md hover:bg-orange-400 ${
+            activeFilter == "filterByRating"
+              ? "bg-orange-400 border-black px-3 w-32 gap-16"
+              : "px-3"
           }`}
         >
           <button
@@ -56,10 +58,10 @@ const OnlineRest = ({ resTitle, resData }) => {
         </div>
 
         <div
-          className={`whitespace-nowrap flex cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 px-3 py-2 shadow-md hover:bg-orange-400 ${
+          className={`whitespace-nowrap w-28 mr-2 inline-grid grid-cols-2 cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 py-2 shadow-md hover:bg-orange-400 ${
             activeFilter == "filterByDelivery"
-              ? "bg-orange-400 border-black"
-              : ""
+              ? "bg-orange-400 border-black px-3 w-32 gap-16"
+              : "px-3"
           }`}
         >
           <button
@@ -84,8 +86,10 @@ const OnlineRest = ({ resTitle, resData }) => {
         </div>
 
         <div
-          className={`whitespace-nowrap flex cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 px-3 py-2 shadow-md hover:bg-orange-400 ${
-            activeFilter == "filterByVeg" ? "bg-orange-400 border-black" : ""
+          className={`whitespace-nowrap w-24 mr-2 inline-grid grid-cols-2 cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 py-2 shadow-md hover:bg-orange-400 ${
+            activeFilter == "filterByVeg"
+              ? "bg-orange-400 border-black px-3 w-28 gap-12"
+              : "px-4"
           }`}
         >
           <button
@@ -110,10 +114,10 @@ const OnlineRest = ({ resTitle, resData }) => {
         </div>
 
         <div
-          className={`whitespace-nowrap flex cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 px-3 py-2 shadow-md hover:bg-orange-400 ${
+          className={`whitespace-nowrap w-40 mr-2 inline-grid grid-cols-2 cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 py-2 shadow-md hover:bg-orange-400 ${
             activeFilter == "filterByLessThan300"
-              ? "bg-orange-400 border-black"
-              : ""
+              ? "bg-orange-400 border-black px-3 w-44 gap-24"
+              : "px-4"
           }`}
         >
           <button
@@ -138,10 +142,10 @@ const OnlineRest = ({ resTitle, resData }) => {
         </div>
 
         <div
-          className={`whitespace-nowrap flex cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 px-3 py-2 shadow-md hover:bg-orange-400 ${
+          className={`whitespace-nowrap w-36 mr-2 inline-grid grid-cols-2 cursor-pointer border border-solid rounded-3xl text-sm border-gray-200 py-2 shadow-md hover:bg-orange-400 ${
             activeFilter == "filterByGreaterThan300"
-              ? "bg-orange-400 border-black"
-              : ""
+              ? "bg-orange-400 border-black px-3 w-44 gap-24"
+              : "px-4"
           }`}
         >
           <button
@@ -166,7 +170,7 @@ const OnlineRest = ({ resTitle, resData }) => {
         </div>
       </div>
 
-      <div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8 items-start">
+      <div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-12 lg:mt-6 xl:mt-4 gap-8 items-start">
         {filterRestaurant.reverse().map((restaurant) => (
           <ResCard key={restaurant?.info?.id} resData={restaurant} />
         ))}
