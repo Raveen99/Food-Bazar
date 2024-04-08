@@ -1,15 +1,26 @@
 import { MdKeyboardArrowUp } from "react-icons/md";
 import MenuItem from "./MenuItem";
 import { useState } from "react";
+import { menuItemsUrl } from "../utils/constants";
 
-const MenuCategoryContainer = ({ resMenu, showItem, showIndex }) => {
+const MenuCategoryContainer = ({ resMenu, isVeg, showItem, showIndex }) => {
+  console.log("resMenu: ", resMenu);
   const { title } = resMenu?.card?.card;
-  const { itemCards, categories } = resMenu?.card?.card;
+  const { itemCards } = resMenu?.card?.card;
+
+  const menuItem =
+    itemCards !== undefined
+      ? isVeg
+        ? itemCards.filter((items) => items?.card?.info?.isVeg)
+        : itemCards
+      : "";
+
+  console.log("MenuItems: ", menuItem);
   const handleShowItem = () => {
     showIndex();
   };
 
-  return itemCards ? (
+  return (
     <div>
       <button
         id="menuDropDown"
@@ -28,52 +39,18 @@ const MenuCategoryContainer = ({ resMenu, showItem, showIndex }) => {
       </button>
       {showItem && (
         <div>
-          {itemCards.map((items) => (
+          {menuItem.map((items) => (
             <div>
-              <MenuItem key={items?.card?.info?.id} data={items?.card?.info} />
+              <MenuItem
+                key={items?.card?.info?.id}
+                data={items?.card?.info}
+                isVeg={isVeg}
+              />
               <div className="border-b-[0.5px] border-solid border-gray-300 my-5"></div>
             </div>
           ))}
         </div>
       )}
-    </div>
-  ) : (
-    <div>
-      <div className="mb-6 font-bold text-xl">{title}</div>
-      {categories.map((category) => (
-        <div
-          id={category.title}
-          className="border-b-[0.5px] border-solid border-grey-300 mb-6"
-        >
-          <button
-            onClick={handleShowItem}
-            className="w-full flex justify-between text-lg"
-          >
-            <div className="text-base font-medium text-slate-900">{`${category?.title} (${category?.itemCards.length})`}</div>
-            <span>
-              <MdKeyboardArrowUp
-                style={{
-                  fontSize: "1.6rem",
-                  transform: showItem ? "rotate(360deg)" : "rotate(180deg)",
-                }}
-              />
-            </span>
-          </button>
-          {showItem && (
-            <div>
-              {category.itemCards.map((items) => (
-                <div>
-                  <MenuItem
-                    key={items?.card?.info?.id}
-                    data={items?.card?.info}
-                  />
-                  <div className="border-b-[0.5px] my-5"></div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
     </div>
   );
 };

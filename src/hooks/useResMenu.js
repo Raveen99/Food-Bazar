@@ -33,9 +33,7 @@ const useResMenu = (resId) => {
       json?.data?.cards[4]?.groupedCard?.cardGroupMap.REGULAR?.cards?.filter(
         (category) =>
           category?.card?.card?.["@type"] ===
-            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
-          category?.card?.card?.["@type"] ===
-            "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
     setResMenu(menuCategory);
   };

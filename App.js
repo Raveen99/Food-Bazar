@@ -17,12 +17,15 @@ import appStore from "./store/appStore";
 import Collections from "./src/components/Collections";
 import Help from "./src/pages/Help";
 import Offers from "./src/pages/Offers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AppComponent = () => {
   const location = useLocation();
   const isCartPage = location.pathname === "/cart";
   return (
     <Provider store={appStore}>
+      <ToastContainer />
       <Header />
       <div className="w-full h-full ">
         <Outlet />

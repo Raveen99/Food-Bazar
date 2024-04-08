@@ -12,8 +12,10 @@ const ResMenu = () => {
     useResMenu(resId);
 
   const [showIndex, setShowIndex] = useState(0);
+  const [isVeg, setIsVeg] = useState(false);
 
   //console.log("ResMenu: ", resMenu);
+  console.log("Veg: ", isVeg);
   return (
     <div className="block max-w-4xl mt-5 mx-auto">
       <ResMenuHeader data={resMenuHeaderData} />
@@ -27,7 +29,7 @@ const ResMenu = () => {
         </div>
       </div>
       <div className="mt-6 ml-4">
-        <PureVegButton isPureVeg={isPureVeg} />
+        <PureVegButton isPureVeg={isPureVeg} veg={() => setIsVeg(!isVeg)} />
       </div>
       <hr
         style={{
@@ -41,6 +43,7 @@ const ResMenu = () => {
             <MenuCategoryContainer
               id={menuCategory?.card?.card?.title}
               resMenu={menuCategory}
+              isVeg={isVeg}
               showItem={index == showIndex ? true : false}
               showIndex={() => setShowIndex(index)}
             />

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { incrementItemCount, addItems } from "../../store/cartSlice";
 import AddItemButton from "./AddItemButton";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const MenuItem = ({ data }) => {
   const info = data;
@@ -29,10 +29,12 @@ const MenuItem = ({ data }) => {
   const handleClick = () => {
     if (cartItem[id] === undefined) {
       dispatch(addItems(info));
+      toast.success("Item Added to cart");
       setItemCount(1);
     } else {
       dispatch(incrementItemCount(id));
       setItemCount(cartItem[id].count);
+      toast.success("Item added to cart");
     }
   };
 

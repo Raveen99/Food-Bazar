@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { decrementItemCount, incrementItemCount } from "../../store/cartSlice";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const AddItemButton = ({ itemCount, setItemCount, data }) => {
   const id = data?.id;
@@ -17,10 +18,12 @@ const AddItemButton = ({ itemCount, setItemCount, data }) => {
 
   const decrement = () => {
     dispatch(decrementItemCount(id));
+    toast.success("Item removed from cart");
   };
 
   const increment = () => {
     dispatch(incrementItemCount(id));
+    toast.success("Item added to cart");
   };
   return (
     <div className="flex justify-between text-lg leading-none py-2 ">

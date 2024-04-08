@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { LuLeaf } from "react-icons/lu";
 
-const PureVegButton = ({ isPureVeg }) => {
+const PureVegButton = ({ isPureVeg, veg }) => {
   const [showVegOnly, setShowVegOnly] = useState(false);
-  const onFilterToggle = () => setShowVegOnly(!showVegOnly);
+  const onFilterToggle = () => {
+    setShowVegOnly(!showVegOnly);
+    veg();
+  };
 
   return isPureVeg === false ? (
     <div className="flex items-center h-3 transform translate-z-0">
