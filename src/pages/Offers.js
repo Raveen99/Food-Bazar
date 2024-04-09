@@ -18,7 +18,7 @@ const Offers = () => {
               to={`${restaurant.info.name}/${restaurant.info.id}`}
               key={restaurant.info.id}
             >
-              <ResCard resData={restaurant} />
+              <ResCard resData={restaurant?.info} />
             </Link>
           ))}
         </div>

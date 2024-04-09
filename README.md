@@ -11,6 +11,6 @@
 - Configure Babel
 - Configure Parcel Config file to disable default babel transpilation
 - Jest Configuration (npx jest --init)
-- Install @babel/preset-react - to make jsx work in test cases
+- Install @babel/preset-react - to make jsx work in test cases (helps to convert jsx code to html so it can read properly.)
 - Add @babel/preset into inside babel.config
 - Install @testing-library/jest-dom

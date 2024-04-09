@@ -1,4 +1,4 @@
-import LOGO from "../img/logo.png";
+import LOGO from "../img/logo.jpeg";
 import {
   LuSearch,
   LuBadgePercent,

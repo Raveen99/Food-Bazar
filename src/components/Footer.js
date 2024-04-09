@@ -1,5 +1,5 @@
 import React from "react";
-import LOGO from "../img/logo.png";
+import LOGO from "../img/logo.jpeg";
 
 const Footer = () => {
   const LiCss =

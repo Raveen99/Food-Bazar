@@ -172,7 +172,7 @@ const OnlineRest = ({ resTitle, resData }) => {
 
       <div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-12 lg:mt-6 xl:mt-4 gap-8 items-start">
         {filterRestaurant.reverse().map((restaurant) => (
-          <ResCard key={restaurant?.info?.id} resData={restaurant} />
+          <ResCard key={restaurant?.info?.id} resData={restaurant?.info} />
         ))}
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { MdStars } from "react-icons/md";
 import { Link } from "react-router-dom";
-const ResCard = ({ resData }) => {
+const ResCard = (props) => {
+  const { resData } = props;
   const {
     id,
     cloudinaryImageId,
@@ -10,7 +11,9 @@ const ResCard = ({ resData }) => {
     locality,
     aggregatedDiscountInfoV3,
     sla,
-  } = resData?.info;
+  } = resData;
+
+  console.log("ResData: ", resData);
 
   let iconStyle = { color: "green", fontSize: "1.5rem" };
 

@@ -117,7 +117,7 @@ const TopRest = ({ resData, resTitle }) => {
         {resData.map((data) => (
           <div key={data?.info?.id} className="pl-4 pr-6 mt-4">
             <div className="w-80 h-auto">
-              <ResCard resData={data} />
+              <ResCard resData={data?.info} />
             </div>
           </div>
         ))}
