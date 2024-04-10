@@ -15,7 +15,7 @@ const useResData = () => {
   const fetchData = async () => {
     const data = await fetch(resURL);
     const restaurantData = await data.json();
-    console.log("Restaurant Data: ", restaurantData);
+    //console.log("Restaurant Data: ", restaurantData);
     //Banner Data
     setBannerData(
       restaurantData?.data?.cards[0]?.card?.card?.imageGridCards?.info.map(

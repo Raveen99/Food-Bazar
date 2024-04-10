@@ -4,7 +4,7 @@ import { useState } from "react";
 import { menuItemsUrl } from "../utils/constants";
 
 const MenuCategoryContainer = ({ resMenu, isVeg, showItem, showIndex }) => {
-  console.log("resMenu: ", resMenu);
+  //console.log("resMenu: ", resMenu);
   const { title } = resMenu?.card?.card;
   const { itemCards } = resMenu?.card?.card;
 
@@ -15,7 +15,7 @@ const MenuCategoryContainer = ({ resMenu, isVeg, showItem, showIndex }) => {
         : itemCards
       : "";
 
-  console.log("MenuItems: ", menuItem);
+  //console.log("MenuItems: ", menuItem);
   const handleShowItem = () => {
     showIndex();
   };

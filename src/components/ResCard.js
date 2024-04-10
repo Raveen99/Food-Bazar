@@ -13,7 +13,7 @@ const ResCard = (props) => {
     sla,
   } = resData;
 
-  console.log("ResData: ", resData);
+  //console.log("ResData: ", resData);
 
   let iconStyle = { color: "green", fontSize: "1.5rem" };
 

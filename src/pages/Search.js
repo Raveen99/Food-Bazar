@@ -45,7 +45,7 @@ const Search = () => {
         })
       );
     } catch (error) {
-      console.log("Error while fetching data: ", error);
+      //console.log("Error while fetching data: ", error);
     }
   };
 

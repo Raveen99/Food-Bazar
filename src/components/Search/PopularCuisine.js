@@ -26,7 +26,7 @@ const PopularCuisine = () => {
       );
       setTitle(popCuisinesData?.data?.cards[1]?.card?.card?.header?.title);
     } catch (error) {
-      console.error("Error Fetching Data: ", error);
+      //console.error("Error Fetching Data: ", error);
     }
   };
 

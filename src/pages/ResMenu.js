@@ -5,6 +5,7 @@ import ResOffer from "../components/ResOffer";
 import PureVegButton from "../components/PureVegButton";
 import MenuCategoryContainer from "../components/MenuCategoryContainer";
 import { useState } from "react";
+import ResMenuShimmer from "../Shimmers/ResMenuShimmer";
 
 const ResMenu = () => {
   const { resId } = useParams();
@@ -16,8 +17,10 @@ const ResMenu = () => {
 
   //console.log("ResMenu: ", resMenu);
   //console.log("Veg: ", isVeg);
-  return (
-    <div className="block max-w-4xl mt-24 mx-auto">
+  return resMenu.length === 0 ? (
+    <ResMenuShimmer />
+  ) : (
+    <div className="block max-w-4xl mt-4 mx-auto">
       <ResMenuHeader data={resMenuHeaderData} />
       <div className="pb-4 px-3 mt-5">
         <div className="flex overflow-x-auto overflow-y-hidden flex-col w-full">
