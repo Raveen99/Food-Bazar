@@ -19,6 +19,7 @@ import Help from "./src/pages/Help";
 import Offers from "./src/pages/Offers";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "./src/components/Header";
 
 const AppComponent = () => {
   const location = useLocation();
@@ -26,8 +27,9 @@ const AppComponent = () => {
   return (
     <Provider store={appStore}>
       <ToastContainer />
+
       <Header />
-      <div className="w-full h-full ">
+      <div className="w-full h-full">
         <Outlet />
       </div>
       {!isCartPage && <Footer />}

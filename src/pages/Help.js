@@ -13,7 +13,7 @@ function Help() {
   }
 
   return (
-    <div className="-mt-16 w-full bg-[#37718E] p-14 pt-20 sm:px-8 xs:px-5">
+    <div className="w-full -mt-4 bg-[#37718E] p-14 pt-20 sm:px-8 xs:px-5">
       <div>
         <div className="px-10 xs:px-5">
           <h2 className="mb-1 text-3xl font-bold text-white xs:text-2xl">

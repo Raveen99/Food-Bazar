@@ -8,7 +8,7 @@ const Collections = () => {
   const { restaurantData, pageTitle, pageDescription } = useCollectionData(id);
 
   return (
-    <div className="mt-3 p-2 w-3/5 mx-auto md:mt-8 lg:mt-12">
+    <div className="mt-20 p-2 w-3/5 mx-auto md:mt-20 lg:mt-20">
       <div className="my-3 md:my-5 lg:my-6">
         <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-gray-800 ">
           {pageTitle}

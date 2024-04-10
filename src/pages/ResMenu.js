@@ -15,9 +15,9 @@ const ResMenu = () => {
   const [isVeg, setIsVeg] = useState(false);
 
   //console.log("ResMenu: ", resMenu);
-  console.log("Veg: ", isVeg);
+  //console.log("Veg: ", isVeg);
   return (
-    <div className="block max-w-4xl mt-5 mx-auto">
+    <div className="block max-w-4xl mt-24 mx-auto">
       <ResMenuHeader data={resMenuHeaderData} />
       <div className="pb-4 px-3 mt-5">
         <div className="flex overflow-x-auto overflow-y-hidden flex-col w-full">
