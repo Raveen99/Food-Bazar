@@ -58,8 +58,8 @@ const Search = () => {
   };
 
   return (
-    <div className="p-2 lg:w-4/5 xl:w-[1100px] m-auto mt-3 md:mt-5 xl:mt-6 relative">
-      <div className="sticky top-14 lg:top-16 pt-2 sm:pt-6 md:pt-10 bg-white z-10">
+    <div className="p-2 h-screen lg:w-4/5 xl:w-[1100px] m-auto mt-3 md:mt-5 xl:mt-6 relative">
+      <div className="z-5 sticky top-14 lg:top-16 pt-2 sm:pt-6 md:pt-10 bg-white z-10">
         <span className="absolute right-3 translate-y-1/2 cursor-pointer ">
           {!searchText ? (
             <LuSearch size={25} className="text-gray-600" />

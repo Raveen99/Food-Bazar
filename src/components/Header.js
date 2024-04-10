@@ -34,10 +34,10 @@ const Header = () => {
   };
 
   return (
-    <div className="shadow-lg my-3">
+    <div className="shadow-lg py-2">
       <div className="flex flex-wrap items-center justify-between mx-auto xl:px-[8%] px-[2%]">
         <div className="">
-          <Link to="/" className="flex items-center mb-4">
+          <Link to="/" className="flex items-center mb-2">
             <img src={LOGO} alt="logo" className="w-16 h-16"></img>
             <p className="text-2xl ml-4 font-medium text-[#fc8019]">
               Food Bazar

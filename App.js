@@ -27,9 +27,10 @@ const AppComponent = () => {
   return (
     <Provider store={appStore}>
       <ToastContainer />
-
-      <Header />
-      <div className="w-full h-full">
+      <div className="fixed top-0 w-full z-30 bg-[#fff]">
+        <Header />
+      </div>
+      <div className="w-full h-full mt-24">
         <Outlet />
       </div>
       {!isCartPage && <Footer />}

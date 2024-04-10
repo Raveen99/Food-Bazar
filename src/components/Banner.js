@@ -89,7 +89,7 @@ const NewBanner = (props) => {
 
   //console.log("Data in banner: ", data);
   return (
-    <div className="relative p-4 mx-[calc(3%+36px)] xl:mx-[calc(10%+36px)] md:mx-[calc(8%+36px)] sm:mx-[calc(6%+36px)]">
+    <div className="mt-20 relative p-4 mx-[calc(3%+36px)] xl:mx-[calc(10%+36px)] md:mx-[calc(8%+36px)] sm:mx-[calc(6%+36px)]">
       <Carousel
         className="px-0 py-10"
         responsive={responsive}
