@@ -16,7 +16,7 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <HomeShimmer />
   ) : (
-    <div className="w-full h-full">
+    <div className="w-full h-full z-20">
       <Banner data={bannerData} />
       <hr className="border-solid border-1 border-[rgb(240, 240, 245)] m-2 calc(10% + 52px)"></hr>
 
