@@ -1,6 +1,7 @@
 import useResData from "../hooks/useResData";
 import ResCard from "../components/ResCard";
 import { Link } from "react-router-dom";
+import OffersShimmer from "../Shimmers/OffersShimmer";
 
 const Offers = () => {
   const { topRestaurant } = useResData();
@@ -12,16 +13,20 @@ const Offers = () => {
           Best offers with online food delivery
         </h1>
 
-        <div className="mt-8 grid xl:grid-cols-4 items-center lg:grid-cols-3 md:grid-cols-2 gap-6">
-          {topRestaurant?.slice(0, 10).map((restaurant) => (
-            <Link
-              to={`${restaurant.info.name}/${restaurant.info.id}`}
-              key={restaurant.info.id}
-            >
-              <ResCard resData={restaurant?.info} />
-            </Link>
-          ))}
-        </div>
+        {topRestaurant.length === 0 || topRestaurant == undefined ? (
+          <OffersShimmer />
+        ) : (
+          <div className="mt-8 grid xl:grid-cols-4 items-center lg:grid-cols-3 md:grid-cols-2 gap-6">
+            {topRestaurant?.slice(0, 10).map((restaurant) => (
+              <Link
+                to={`${restaurant.info.name}/${restaurant.info.id}`}
+                key={restaurant.info.id}
+              >
+                <ResCard resData={restaurant?.info} />
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

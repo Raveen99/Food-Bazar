@@ -16,10 +16,12 @@ import { Provider } from "react-redux";
 import appStore from "./store/appStore";
 import Collections from "./src/components/Collections";
 import Help from "./src/pages/Help";
-import Offers from "./src/pages/Offers";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./src/components/Header";
+import { lazy, Suspense } from "react";
+
+const Offers = lazy(() => import("./src/pages/Offers"));
 
 const AppComponent = () => {
   const location = useLocation();

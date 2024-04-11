@@ -13,7 +13,7 @@ const Body = () => {
   } = useResData();
 
   //console.log("List Of Restaurants: ", listOfRestaurants);
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants == undefined || listOfRestaurants.length === 0 ? (
     <HomeShimmer />
   ) : (
     <div className="w-full h-full z-20">
