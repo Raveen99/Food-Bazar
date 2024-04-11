@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   return (
-    <div className="shadow-lg py-2">
+    <div className="shadow-lg py-2 bg-[#fff]">
       <div className="flex flex-wrap items-center justify-between mx-auto xl:px-[8%] px-[2%]">
         <div className="">
           <Link to="/" className="flex items-center mb-2">

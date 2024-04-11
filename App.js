@@ -27,7 +27,7 @@ const AppComponent = () => {
   return (
     <Provider store={appStore}>
       <ToastContainer />
-      <div className="fixed top-0 w-full z-30 bg-[#fff]">
+      <div className="fixed top-0 w-full z-30">
         <Header />
       </div>
       <div className="w-full h-full mt-24">
