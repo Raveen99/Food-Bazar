@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   return (
-    <div className="shadow-lg pt-2 bg-slate-400">
+    <div className="shadow-lg pt-2 bg-white">
       <div className="z-30">
         <div className="flex flex-wrap items-center justify-between mx-auto xl:px-[8%] px-[2%]">
           <div className="">
